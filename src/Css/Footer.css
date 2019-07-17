@@ -4,12 +4,11 @@
     text-decoration: none;
 }
 .footer_body {
-    background-color: #8f8888;
-    /* background-position:cover;  */
     width: 100%;
     height: 200px;
-    background-color: #2ca5d4;
-    margin-top: 100px;
+    background: url('../Images/footer.png');
+    background-size: cover;
+
     border-top: 2px solid rgb(5, 141, 165);
 }
 .s-m {

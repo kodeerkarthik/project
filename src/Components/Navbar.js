@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Css/Navbar.css';
-import logo from '../Images/logo.png'
+import logo1 from '../Images/logo1.png'
 class Navbar extends Component { 
     render() {
 
@@ -8,20 +8,23 @@ class Navbar extends Component {
             <div className='nav_body'>
                 <nav className='navnar'>
                     <div className='toggle'>
-                    <i className="fa fa-bars" arial-hidden="true" ></i>
+                        <i className="fa fa-bars" arial-hidden="true" ></i>
                     </div>
-                    <ul className="unlist">
-                        <li><h3 className='logo_name'>HEALTH+</h3><h6 className='logo_subname'>MULTISPECIALITY HOSPITAL</h6></li>
-                        <li></li><li></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">News</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <span className="search_box">
+                    <ul className="unlist row">
+                        <li className="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                            {/* <img src={logo1} alt={"logo"} className='logo1'></img> */}
+                            <h3 className='logo_name1'>HEALTH+</h3>
+                        </li>
+                        <li className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></li>
+                        <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="#">Home</a></li>
+                        <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="#">About Us</a></li>
+                        <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="#">Services</a></li>
+                        <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="#">News</a></li>
+                        <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="#">Contact Us</a></li>
+                        <li className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></li>
+                        <span className="col-xs-3 col-sm-3 col-md-3 col-lg-3 search_box">
                             <input className='search_txt' type="text" placeholder='Type to search'></input>
                             <a className="search_btn" href="#"><i className="fa fa-search"></i></a>
-                            
                         </span>
                     </ul>
                 </nav>
@@ -38,3 +41,5 @@ class Navbar extends Component {
 }
 
 export default Navbar;
+
+
