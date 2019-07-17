@@ -1,0 +1,211 @@
+.body {
+    margin: 0;
+    padding: 0;
+    background: url(../Images/background.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+    height: 100%;
+}
+.logo {
+    height: 100px;
+}
+.head {
+    background-color: rgba(6, 113, 128, 0.808);
+}
+.signup_box{
+    border-radius: 20px;
+    background-color: rgba(41, 43, 44, 0.788);
+    padding: 10px;
+    box-shadow: 15px 15px 20px rgb(39, 41, 41);
+    border: solid 1px white;
+    margin: 20px;
+}
+.box {
+    margin-top: 100px;
+    box-shadow: 200px;
+}
+.input_box {
+    width: 100%;
+    margin-bottom: 10px;
+    height: 40px;
+    /* background-color: rgba(0, 0, 0, 0.822); */
+    background:rgba(0, 0, 0, 0.658);
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    border : solid 1px white; 
+    
+    border-radius: 10px;
+    padding-left: 10px;
+}
+.signup_heading {
+    background-color:rgb(233, 225, 233);
+    color: rgb(20, 74, 105);
+    font-weight: bold;
+    margin: 20px;
+    border: 3px solid rgb(20, 74, 105);
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px rgb(80, 245, 223);
+    text-align: center;
+}
+.login_heading {
+    background-color:rgb(233, 225, 233);
+    color: rgb(197, 13, 120);
+    font-weight: bold;
+    margin: 20px;
+    border: 1px solid rgb(196, 18, 151);
+    border-radius: 50px;
+    padding: 5px;
+    font-size: 30px;
+    text-shadow: 2px 2px 5px rgb(3, 107, 93);
+    text-align: center;
+}
+.signup_image {
+    background: url(../Images/register.jpeg);
+    background-size: cover;
+    border-radius: 10px;
+    /* height: 100%; */
+}
+.login_image {
+    background: url(../Images/login1.jpeg);
+    background-size: cover;
+    border-radius: 10px;
+    /* height: 100%; */
+}
+.signup_btn{
+    width: 75%;
+    margin: 20px 0;
+    border-radius: 20px;
+    background-color: rgb(20, 74, 105);
+    border:solid 1px rgb(229, 237, 241);
+    font-size: 20px;
+}
+.login_btn{
+    width: 75%;
+    margin: 20px 0;
+    border-radius: 20px;
+    background-color: rgb(231, 25, 104);
+    border:solid 1px rgb(229, 237, 241);
+    font-size: 20px;
+}
+.row {
+    width: 100%;
+    box-align: center;
+}
+.signup_lbl {
+    color:white;
+}
+.link_btn{
+    color:white;
+    background-color: black;
+    border-radius: 50px;
+    height: 30px;
+    padding: 0 10px;
+    margin: 0 20px;
+}
+.radio {
+    color: white;
+}
+.select_one {
+    margin: 0 10px;
+}
+.body1 {
+    padding: 20% 0;
+    /* background: #35353569 */
+}
+
+.modal-content {
+    width: 150%;
+}
+.signup_form {
+    padding: 0 70px 0 30px;
+    box-shadow: 15px 15px 15px rgb(12, 12, 12);
+    background: url(../Images/modal.jpg);
+    opacity: 50%;
+    background-size: cover;
+    border: 1px solid white;
+    text-align:center;
+}
+
+.login_form {
+    padding: 0 70px 0 30px;
+    box-shadow: 15px 15px 15px rgb(12, 12, 12);
+    background: url(../Images/login.jpeg);
+    opacity: 50%;
+    background-size: cover;
+    border: 1px solid white;
+    text-align:center;
+}
+.register {
+    position: absolute;
+    text-align: center;
+    border: solid 1px rgb(95, 92, 92);
+    width: 50%;
+    padding: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    font-size: 24px;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    color:#fff;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 30px;
+}
+.register:hover{
+    animation:animate 8s linear infinite;
+    color: black;
+    line-height: 60px;
+    width: 70%;
+}
+@keyframes animate{
+    0%{
+        background-position: 0%;
+    }
+    100%{
+        background-position: 400%;
+    }
+}
+.register:before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    left:-5px;
+    right:-5px;
+    bottom:-5px;
+    z-index: -1;
+    background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 0.5s;
+    
+}
+.register:hover:before{
+    filter:blur(10px);
+    opacity: 1;
+    animation:animate 8s linear infinite;
+
+}
+.logo_name {
+    color: red;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgb(49, 48, 48)
+}
+.logo_subname{
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: left;
+    text-shadow: 2px 2px 5px rgb(49, 48, 48)
+}
+.modal {
+    /* margin-left: -350px; */
+    left: -10%;
+    margin-top: 40px;
+}

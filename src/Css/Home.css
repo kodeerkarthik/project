@@ -1,0 +1,52 @@
+.home_img {
+    width: 100%;
+    height: 400px;
+    margin: 50px 0;
+    background: url('../Images/homebg1.jpg');
+    opacity: 0.8;
+    border: 1px outset rgba(10, 10, 10, 0.63);
+    box-shadow: -15px 20px 15px rgb(90, 88, 88);
+    border-radius: 25px;
+    background-size:cover;
+    background-position: center; 
+}
+
+.home_body {
+    background: url('../Images/homebackground.jpg');
+    background-position: center;
+    background-size: cover;
+    
+
+}
+.onimagetext {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 50px;
+    text-align: left;
+    color: rgb(245, 239, 239);
+    text-shadow: 5px 5px 20px black;
+    -webkit-text-stroke:0.8px rgb(228, 7, 154);
+    /* text-decoration:  */
+}
+.p_hide {
+    display: none;
+}
+.readmore {
+    background-color: rgb(2, 54, 54);
+    color: rgb(245, 240, 240);
+    font-weight: bold;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 20px;
+    border: 1px solid yellow;
+    box-shadow: 5px 5px 10px red
+}
+.readmore:hover  {
+    color: rgb(240, 233, 233);
+    background-color: red;
+    box-shadow: 5px 5px 10px rgb(2, 54, 54);
+}
+.readmore:hover > .p_hide {
+    display: block;
+}

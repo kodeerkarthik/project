@@ -1,0 +1,6 @@
+.about_body {
+    background: url('../Images/aboutbg.png');
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+}
