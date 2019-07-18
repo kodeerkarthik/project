@@ -3,13 +3,14 @@
     height: 100%;
     padding: 0;
     margin: 100px 0px;
+    
 }
 .slide {
     width: 100%;
     height: 500px;
-    border: 2px solid rgba(10, 10, 10, 0.63);
-   
+    border: 2px solid rgba(10, 10, 10, 0.63); 
 }
+
 /* slider {
     display: block;
     width: 100%;

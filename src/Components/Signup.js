@@ -68,7 +68,7 @@ class Signup extends Component {
 
 
 
-                <Modal isOpen={this.state.login_modal}>
+                <Modal isOpen={this.state.login_modal} className='signin_modal'>
                     <form onSubmit={this.handleSubmit} className='login_form'> 
                         <ModalBody className=" row signup_box">
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 login_image"></div>

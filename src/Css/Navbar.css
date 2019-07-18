@@ -3,7 +3,7 @@
     padding: 0;
     font-family: sans-serif;
     text-align: left;
-}
+} 
 .navnar {
     margin-top: 20px;
     width: 100%;
@@ -71,7 +71,7 @@
 }
 .search_box {
     /* position: absolute; */
-    margin:10px 0;
+    margin:10px auto;
     width: 240px;
     height: 40px;
     /* transform: translate(-50%,-50px); */
@@ -80,7 +80,10 @@
     border-radius: 40px;
     /* text-align: center; */
     font-size: 20px;
-    padding: 10px;
+    padding: 5px 10px;
+}
+.search_txt:focus {
+    width: 200px;
 }
 .search_box:hover >.search_txt{
     width: 200px;
@@ -88,6 +91,8 @@
 }
 .search_box:hover >.search_btn{
     background: white;
+    height: 100%;
+    width: auto;
 }
 
 .search_btn {

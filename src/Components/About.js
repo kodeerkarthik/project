@@ -66,16 +66,40 @@ class About extends Component {
                     <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
                         <div className='row'>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc1} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc1} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>Sujatha Datt</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>
                             </div>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc2} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc2} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>Vandana Murthy</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>
                             </div>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc3} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc3} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>David Carson</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>                            
                             </div>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc4} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc4} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>Michel Smith</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>                            
                             </div>
                         </div>
                     </div>
@@ -86,16 +110,40 @@ class About extends Component {
                     <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
                         <div className='row'>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc5} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc5} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>Sumitha Singh</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>                                
                             </div>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc6} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc6} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>Smrithi Mandanna</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>                                 
                             </div>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc7} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc7} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>Mogambo</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>                            
                             </div>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
-                                <img src={doc8} alt={"logo"} className='doctors'></img>
+                                <Card className='img_crd'>
+                                    <CardImg top width="100%" height='250px' src={doc8} alt="Card image cap" />
+                                    <CardBody>
+                                    <CardTitle className='card_ttl'>Gold Smith</CardTitle>
+                                    <CardText className='designation'>Surgen</CardText>
+                                    </CardBody>
+                                </Card>                                
                             </div>
                         </div>
                     </div>

@@ -89,12 +89,34 @@ class News extends Component {
                                         <CardTitle className='c_title head1'>​MAKE AN APPOINTMENT</CardTitle>
                                         <CardText className='c_txt cat_txt'>
                                             <select className='optmt_dropdown'>
-                                                <option>Select an appointment</option>
+                                                <option>Medicine</option>
+                                                <option>Anacine</option>
+                                                <option>Vics action 500</option>
+                                                <option>Biotiono 10000</option>
+                                                <option>Zandu balm</option>
+                                            </select>
+                                            <select className='optmt_dropdown'>
+                                                <option>Pharmacy</option>
+                                                <option>B Pharmacy</option>
+                                                <option>M Pharmacy</option>
+                                            </select>
+                                            <select className='optmt_dropdown'>
+                                                <option>Uncategorized</option>
                                                 <option>Medicine</option>
                                                 <option>Pharmacy</option>
-                                                <option>Uncategorized</option>
+                                                <option>Pharmacy</option>
+                                            </select>
+                                            <select className='optmt_dropdown'>
                                                 <option>Doctors</option>
+                                                <option>Medicine</option>
+                                                <option>Pharmacy</option>
+                                                <option>Pharmacy</option>
+                                            </select>
+                                            <select className='optmt_dropdown'>
                                                 <option>Innovations</option>
+                                                <option>3D Models To Shorten Surgeries</option>
+                                                <option>AI Robot</option>
+                                                <option>OR Bottlenecks </option>
                                             </select>
                                             <button type="button" class="btn btn-danger opt_btn">SUBMIT</button>
                                         </CardText>

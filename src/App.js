@@ -4,7 +4,7 @@ import Home from './Components/Home'
 import About from './Components/About'
 import News from './Components/News'
 import Service from './Components/Service'
-// import Contact from './Components/Contact'
+import Contact from './Components/Contact'
 
 // import demo from './Components/demo'
 import './App.css';
@@ -21,7 +21,7 @@ function App() {
           <Route exact path='/service' component={Service}></Route>
           <Route exact path='/about' component={About}></Route>
           <Route exact path='/news' component={News}></Route>
-          {/* <Route exact path='/contact' component={Contact}></Route> */}
+          <Route exact path='/contact' component={Contact}></Route>
           {/* <Route exact path='/demo' component={demo}></Route> */}
         </Switch>
       </Router>    

@@ -39,9 +39,30 @@
     margin-top: 80px;
 }
 .doctors {
-    width: auto;
+    width: 200px;
     height: 250px;
 }
 .margintop {
     margin: 100px 0;
+}
+.img_crd {
+    box-shadow: none;
+    border-bottom: 4px solid #29e0a3;
+}
+.img_crd:hover {
+    width: 105%;
+    height: 105%;
+    left:-2px;
+    top:-2px;
+    border: 4px solid #29e0a3;
+    box-shadow: 2px 2px 30px rgb(248, 246, 246);
+}
+.card_ttl {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+.designation {
+    text-align: left;
+    font-size: 13px;
 }

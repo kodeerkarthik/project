@@ -7,7 +7,7 @@ import Slideshow from './Slideshow';
 import Footer from './Footer';
 import doc from '../Images/doc.jpeg'
 
-class Home extends Component {
+class Home extends Component { 
     render() {
         return (
             <div className='home_body'>
@@ -16,7 +16,7 @@ class Home extends Component {
                 <div className='row'>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                     <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 home_img row">
-                        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div className="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                             <h3 className="onimagetext">By now Americans are accustomed to seeing advertisements for medical goods and services. 
                                 The steady supply of direct-to-consumer TV advertisements 
                             </h3>
@@ -26,7 +26,7 @@ class Home extends Component {
                                 providers are now common.</h3>
                             <button type="button" class="readmore btn btn-info">READ MORE</button>
                         </div>
-                        <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <img src={doc} alt={"doc"} className='homeimg'></img>
                         </div>
                     </div>

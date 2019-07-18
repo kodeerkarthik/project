@@ -203,9 +203,12 @@
     font-weight: bold;
     text-align: left;
     text-shadow: 2px 2px 5px rgb(49, 48, 48)
-}
+} 
 .modal {
     /* margin-left: -350px; */
     left: -10%;
     margin-top: 40px;
+}
+.signin_modal {
+    margin-top: 140px;
 }
