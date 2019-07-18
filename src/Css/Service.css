@@ -1,0 +1,30 @@
+.service_body {
+    background: url('../Images/servicebg.jpg');
+    /* height: 1000px; */
+    background-size: cover;
+    
+}
+.clips {
+    width: 100px;
+    height: auto;
+    
+}
+.margin_top{
+    margin: 100px 0 50px 0;
+    
+}
+.white {
+    /* background: white; */
+    font-size: 15px;
+    color: white;
+    padding: 0 100px;
+}
+.h_details {
+    margin: 20px;
+}
+.cardbg {
+    background: url(../Images/cardbg.jpg);
+}
+.color{
+    color: white;
+}

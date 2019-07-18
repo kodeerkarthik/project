@@ -24,6 +24,7 @@
     /* width: 80%; */
     margin: auto;
     padding: 0;
+    
 }
 .unlist li {
     list-style: none;
@@ -31,7 +32,8 @@
     padding: 5px 0px ;
     font-size: auto;
     font-weight: bold;
-    text-align: center;    
+    text-align: center;   
+    margin:10px 0; 
 }
 .unlist .itms:hover{
     background: rgba(255, 2, 150, 0.993)
@@ -69,8 +71,8 @@
 }
 .search_box {
     /* position: absolute; */
-    /* margin:0 60px; */
-    /* width: 40px; */
+    margin:10px 0;
+    width: 240px;
     height: 40px;
     /* transform: translate(-50%,-50px); */
     background: #2f3640;
@@ -81,7 +83,7 @@
     padding: 10px;
 }
 .search_box:hover >.search_txt{
-    width: 240px;
+    width: 200px;
     /* padding: 0 6px; */
 }
 .search_box:hover >.search_btn{

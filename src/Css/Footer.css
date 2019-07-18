@@ -4,8 +4,10 @@
     text-decoration: none;
 }
 .footer_body {
+    padding-top: 20px;
+    /* padding-bottom: 50px; */
     width: 100%;
-    height: 200px;
+    height: 250px;
     background: url('../Images/footer.png');
     background-size: cover;
 
@@ -14,13 +16,13 @@
 .s-m {
     /* background: #2e2d2d; */
     position: absolute;
-    margin: 50px 35%;
+    margin: 0px 35%;
 }
 .s-m a {
     display: inline-flex;
     width: 40px;
     height: 40px;
-    background: #2c3e50;
+    background: #eb0a67;
     color: white;
     margin: 0 6px;
     border-radius: 50%;
@@ -41,4 +43,28 @@
 .copyright {
     font-size: 20px;
     color: white;
+}
+.foot_search {
+    background: transparent;
+    width: 300px;
+    height: 40px;
+    border: 0px solid transparent;;
+    border-radius: 20px;
+    font-weight: bold;
+    color: white;
+    padding-left:10px; 
+    font-size: 18px;
+}
+.foot_search_box {
+    background: rgb(84, 85, 85);
+    width: 350px;
+    height: 40px;
+    border-radius: 20px;
+    padding-right: 10px;
+    border: solid 2px rgb(235, 7, 83);
+}
+.foot_search_btn {
+    color: #f80067;
+    font-size: 20px;
+    line-height: 20px;
 }

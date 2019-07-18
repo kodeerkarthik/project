@@ -9,15 +9,18 @@ class Footer extends Component {
                     <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                         <div className='row'>
                             <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                About Us
+                                <h2>About Us</h2><br/>
                             </div>
                             <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                             <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                Contact Us
+                                <h3>Contact Us</h3><br/>
                             </div>
                             <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                searchbox
+                            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+                                <div className='foot_search_box'>
+                                    <input type='text' className='foot_search'></input>
+                                    <a className="foot_search_btn" href="#"><i className="fa fa-search"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
