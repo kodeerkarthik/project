@@ -50,3 +50,6 @@
 .readmore:hover > .p_hide {
     display: block;
 }
+.homeimg {
+    height:100%;
+}
