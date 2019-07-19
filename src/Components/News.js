@@ -3,6 +3,9 @@ import Paragraph from './Paragraph'
 import Logo from './Logo';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import news1 from '../Images/news1.jpeg';
+import news2 from '../Images/news2.jpeg';
+import news3 from '../Images/news3.jpeg';
 import '../Css/News.css';
 import newsimg from '../Images/newsimg.png';
 import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button } from 'reactstrap';
@@ -32,7 +35,43 @@ class News extends Component {
                         </div>
                         <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2'></div> 
                         <div className='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
-                            <Card className='card ncard'>
+
+                            <div className='row c_body ncard'>
+                                <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
+                                    <img src={news1} alt={"logo"} className='news_imges'></img>
+                                </div>
+                                <div className='col-xs-9 col-sm-9 col-md-9 col-lg-9'>
+                                    <div><h2 className='c_title'>Could artificial intelligence?</h2></div>
+                                    <div className='c_txt'>As it stands, doctors have access to high quality imaging, and ... 
+                                    He explains that "in the case of medical imaging, you're lucky if you have 1,000 ...</div>
+                                </div>
+                            </div>
+
+                            <div className='row c_body ncard'>
+                                <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
+                                    <img src={news2} alt={"logo"} className='news_imges'></img>
+                                </div>
+                                <div className='col-xs-9 col-sm-9 col-md-9 col-lg-9'>
+                                    <div><h2 className='c_title'>Causes a pulse in the stomach?</h2></div>
+                                    <div className='c_txt'>According to the National Institutes of Health (NIH), 1 in 10 people who ... 
+                                    of X-ray images to give a detailed picture of tissues inside the body.</div>
+                                </div>
+                            </div>
+
+                            <div className='row c_body ncard'>
+                                <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
+                                    <img src={news3} alt={"logo"} className='news_imges'></img>
+                                </div>
+                                <div className='col-xs-9 col-sm-9 col-md-9 col-lg-9'>
+                                    <div><h2 className='c_title'>Breakthrough discovery</h2></div>
+                                    <div className='c_txt'>Endoscopic imaging, or using cameras inserted directly inside the ... 
+                                    implanted through a medical procedure or surgery in order to reach the ...</div>
+                                </div>
+                            </div>
+
+
+
+                            {/* <Card className='card ncard'>
                                 <CardBody className='c_body'>
                                     <CardTitle className='c_title'>News #1</CardTitle>
                                     <CardText className='c_txt'>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
@@ -49,12 +88,11 @@ class News extends Component {
                                     <CardTitle className='c_title'>News #3</CardTitle>
                                     <CardText className='c_txt'>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
                                 </CardBody>
-                            </Card>
+                            </Card> */}
                         </div>       
                     </div> 
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div> 
                     </div>
-
                     <div className='row all_news_div'>
                         <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                         <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10 row'>
@@ -133,5 +171,4 @@ class News extends Component {
         );
     }
 }
-
 export default News;

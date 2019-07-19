@@ -47,7 +47,7 @@
 }
 .foot_search {
     background: transparent;
-    width: 300px;
+    width: 90%;
     height: 40px;
     border: 0px solid transparent;;
     border-radius: 20px;
@@ -58,9 +58,9 @@
 }
 .foot_search_box {
     background: rgb(84, 85, 85);
-    width: 350px;
+    width: 50%;
     height: 40px;
-    margin-left: 23%;
+    margin-left: 25%;
     border-radius: 20px;
     padding-right: 10px;
     border: solid 2px rgb(235, 7, 83);

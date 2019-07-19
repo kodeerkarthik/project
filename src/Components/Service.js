@@ -3,8 +3,11 @@ import Logo from './Logo';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import clip1 from '../Images/clip1.png'
-import clip2 from '../Images/clip2.jpeg'
+import clip2 from '../Images/clip2.png'
 import clip3 from '../Images/clip3.png'
+import clip4 from '../Images/clip4.png'
+import clip5 from '../Images/clip5.png'
+import clip6 from '../Images/clip6.png'
 import cards1 from '../Images/cards1.jpg'
 import cards2 from '../Images/cards2.jpg'
 import cards3 from '../Images/cards3.jpg'
@@ -19,6 +22,91 @@ class Service extends Component {
                 <div><Navbar/></div>
                     <div className="row margin_top">
                         <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                        <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 row service_list">
+                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
+                               <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    <img src={clip1} alt={"logo"} className='clips'></img>
+                               </div> 
+                               <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
+                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                                </div>
+                               <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
+                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
+                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                               </div> 
+                            </div>
+                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
+                               <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    <img src={clip2} alt={"logo"} className='clips'></img>
+                               </div> 
+                               <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
+                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                               </div>
+                               <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
+                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
+                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                               </div> 
+                            </div>
+                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
+                               <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    <img src={clip3} alt={"logo"} className='clips'></img>
+                               </div> 
+                               <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white ">
+                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                               </div>
+                               <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
+                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
+                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                               </div> 
+                            </div>
+                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
+                               <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    <img src={clip5} alt={"logo"} className='clips'></img>
+                               </div> 
+                               <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
+                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                               </div>
+                               <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
+                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
+                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                               </div> 
+                            </div>
+                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
+                               <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    <img src={clip6} alt={"logo"} className='clips'></img>
+                               </div> 
+                               <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
+                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                               </div>
+                               <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
+                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
+                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                               </div> 
+                            </div>
+                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
+                               <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                    <img src={clip4} alt={"logo"} className='clips'></img>
+                               </div> 
+                               <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white ">
+                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                               </div>
+                               <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
+                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
+                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                               </div> 
+                            </div>
+                        </div>   
+                        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    </div>
+
+
+
+
+
+
+
+                    {/* <div className="row margin_top">
+                        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                         <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 row">
                             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
                                 <img src={clip1} alt={"logo"} className='clips'></img>
@@ -31,8 +119,8 @@ class Service extends Component {
                             </div>
                         </div>
                         <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                    </div>
-                    <div className="row">
+                    </div> */}
+                    {/* <div className="row">
                         <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                         <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 row">
                             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
@@ -49,7 +137,7 @@ class Service extends Component {
                             </div>
                         </div>
                         <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                    </div>
+                    </div> */}
 
                     <div className='row'>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
