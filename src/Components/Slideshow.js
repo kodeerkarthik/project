@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../Css/Slideshow.css';
-import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBMask, MDBContainer } from "mdbreact";
+import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from "mdbreact";
 class Slideshow extends Component { 
     render() {
 

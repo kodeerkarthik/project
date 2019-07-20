@@ -3,7 +3,7 @@ import Logo from './Logo';
 // import Footer from './Footer';
 
 import '../Css/Signup.css';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 class Signup extends Component {
     constructor(props){

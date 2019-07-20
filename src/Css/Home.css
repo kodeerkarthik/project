@@ -19,18 +19,16 @@
 }
 .onimagetext {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 30px;
+    font-size: 17px;
     font-weight: bold;
-    padding: 50px;
+    padding: 10px 50px;
     text-align: left;
     color: rgb(245, 239, 239);
     text-shadow: 5px 5px 20px black;
     -webkit-text-stroke:0.8px rgb(228, 7, 154);
     /* text-decoration:  */
 }
-.p_hide {
-    display: none;
-}
+
 .readmore {
     background-color: rgb(2, 54, 54);
     color: rgb(245, 240, 240);
@@ -52,4 +50,4 @@
 }
 .homeimg {
     height:100%;
-}
+} 

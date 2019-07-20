@@ -3,6 +3,9 @@
     /* height: 1000px; */
     background-size: cover;
     
+} 
+.service_list{
+    padding: 0;
 }
 .clips {
     width: 50px;

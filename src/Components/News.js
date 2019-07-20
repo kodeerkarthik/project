@@ -8,7 +8,7 @@ import news2 from '../Images/news2.jpeg';
 import news3 from '../Images/news3.jpeg';
 import '../Css/News.css';
 import newsimg from '../Images/newsimg.png';
-import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,CardTitle} from 'reactstrap';
 class News extends Component {
     render() {
         return (

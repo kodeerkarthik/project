@@ -8,6 +8,14 @@ import Footer from './Footer';
 import doc from '../Images/doc.jpeg'
 
 class Home extends Component { 
+    constructor( props ){
+        super( props )
+        this.state = { show : false };
+    }
+    toggleDiv = () => {
+        const { show } = this.state;
+        this.setState( { show : !show } )
+    }
     render() {
         return (
             <div className='home_body'>
@@ -20,11 +28,8 @@ class Home extends Component {
                             <h3 className="onimagetext">By now Americans are accustomed to seeing advertisements for medical goods and services. 
                                 The steady supply of direct-to-consumer TV advertisements 
                             </h3>
-                            <h3 className='onimagetext p_hide'>While advertising by doctors and hospitals has been legal for 30 years, until recently, professional 
-                                taboos discouraged the practice. Increasing economic pressures and changing cultural norms have led, however, 
-                                to the demise of these informal proscriptions, and advertisements produced by hospitals and individual 
-                                providers are now common.</h3>
-                            <button type="button" class="readmore btn btn-info">READ MORE</button>
+                                { this.state.show && <Box /> }
+                            <button type="button" onClick={ this.toggleDiv } class="readmore btn btn-info">READ MORE</button>
                         </div>
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <img src={doc} alt={"doc"} className='homeimg'></img>
@@ -38,5 +43,17 @@ class Home extends Component {
         );
     }
 }
+
+class Box extends Component{
+    render(){
+        return(
+            <div className='onimagetext'>While advertising by doctors and hospitals has been legal for 30 years, until recently, professional 
+            taboos discouraged the practice. Increasing economic pressures and changing cultural norms have led, however, 
+            to the demise of these informal proscriptions, and advertisements produced by hospitals and individual 
+            providers are now common.</div>
+        )
+    }
+}
+
 
 export default Home;

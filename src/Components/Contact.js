@@ -3,7 +3,7 @@ import '../Css/Contact.css';
 import Logo from './Logo';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardText, CardBody,CardTitle} from 'reactstrap';
 
 
 class Contact extends Component { 

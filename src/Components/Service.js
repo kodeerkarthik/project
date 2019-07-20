@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
 import Navbar from './Navbar';
+import Counter from './Counter';
 import Footer from './Footer';
 import clip1 from '../Images/clip1.png'
 import clip2 from '../Images/clip2.png'
@@ -12,9 +13,25 @@ import cards1 from '../Images/cards1.jpg'
 import cards2 from '../Images/cards2.jpg'
 import cards3 from '../Images/cards3.jpg'
 import '../Css/Service.css';
-import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,CardTitle, Button } from 'reactstrap';
 
 class Service extends Component {
+    constructor( props ){
+        super( props )
+        this.state = { doctor_show : false,patient_show:false,ward_show : false,staff_show:false };
+    }
+    toggleDoctors = () => {
+        this.setState( { doctor_show : true,patient_show:false,ward_show : false,staff_show:false  } )
+    }
+    togglePatients = () => {
+        this.setState( { doctor_show : false,patient_show:true,ward_show : false,staff_show:false  } )
+    }
+    toggleWards = () => {
+        this.setState( { doctor_show : false,patient_show:false,ward_show : true,staff_show:false } )
+    }
+    toggleStaffs = () => {
+        this.setState( { doctor_show : false,patient_show:false,ward_show : false,staff_show:true } )
+    }
     render() {
         return (
             <div className='service_body'>
@@ -99,46 +116,6 @@ class Service extends Component {
                         <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                     </div>
 
-
-
-
-
-
-
-                    {/* <div className="row margin_top">
-                        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                        <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 row">
-                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
-                                <img src={clip1} alt={"logo"} className='clips'></img>
-                            </div>
-                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
-                                <img src={clip2} alt={"logo"} className='clips'></img>
-                            </div>
-                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
-                                <img src={clip3} alt={"logo"} className='clips'></img>
-                            </div>
-                        </div>
-                        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                    </div> */}
-                    {/* <div className="row">
-                        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                        <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 row">
-                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
-                                <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
-                            </div>
-                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
-                                <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
-                            </div>
-                            <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 white">
-                                <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
-                            </div>
-                        </div>
-                        <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                    </div> */}
-
                     <div className='row'>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                     <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
@@ -185,20 +162,24 @@ class Service extends Component {
                                 <CardBody className='c_body cardbg'>
                                     <CardTitle className='c_title color'>Hospital Details</CardTitle>
                                     <CardText >
-                                        <div className='h_details'><Button className='c_btn'>Number of Doctors</Button></div>
-                                        <div className='h_details'><Button className='c_btn'>Number of Patients</Button></div>
-                                        <div className='h_details'><Button className='c_btn'>Number of Wards</Button></div>
-                                        <div className='h_details'><Button className='c_btn'>Number of Staff</Button></div>
+                                        <div className='h_details'><Button onClick={ this.toggleDoctors }  className='c_btn'>Number of Doctors</Button></div>
+                                        <div className='h_details'><Button onClick={ this.togglePatients } className='c_btn'>Number of Patients</Button></div>
+                                        <div className='h_details'><Button onClick={ this.toggleWards } className='c_btn'>Number of Wards</Button></div>
+                                        <div className='h_details'><Button onClick={ this.toggleStaffs } className='c_btn'>Number of Staff</Button></div>
                                     </CardText>
                                 </CardBody>
                             </Card>
                         </div>
-                        <div className='col-xs-6 col-sm-6 col-md-6 col-lg-6'>
+                        <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
+                        <div className='col-xs-5 col-sm-5 col-md-5 col-lg-5'>
                             <Card >
                                 <CardBody className='c_body '>
                                     <CardTitle className='c_title '>heading</CardTitle>
                                     <CardText >
-                                        content
+                                        { this.state.doctor_show && <Dcontent /> }
+                                        { this.state.patient_show && <Pcontent /> }
+                                        { this.state.ward_show && <Wcontent /> }
+                                        { this.state.staff_show && <Scontent /> }
                                     </CardText>
                                 </CardBody>
                             </Card>
@@ -206,9 +187,44 @@ class Service extends Component {
                     </div>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                 </div>
+                <div className='row'>
+                    <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
+                    <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
+                    <Counter/>
+                    </div>
+                    <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
+                </div>
                 <div><Footer/></div>
             </div>
         );
+    }
+}
+class Dcontent extends Component{
+    render(){
+        return(
+            <div className='onimagetext'>Number of Doctors  :   20</div>
+        )
+    }
+}
+class Pcontent extends Component{
+    render(){
+        return(
+            <div className='onimagetext'>Number of Patients :   68</div>
+        )
+    }
+}
+class Wcontent extends Component{
+    render(){
+        return(
+            <div className='onimagetext'>Number of Wards    :   70</div>
+        )
+    }
+}
+class Scontent extends Component{
+    render(){
+        return(
+            <div className='onimagetext'>Number of Staff    :   80</div>
+        )
     }
 }
 

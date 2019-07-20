@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Home from './Home'
-import About from './About'
-import News from './News'
-import Service from './Service'
-import Contact from './Contact'
+// import Home from './Home'
+// import About from './About'
+// import News from './News'
+// import Service from './Service'
+// import Contact from './Contact'
 import '../Css/Navbar.css';
-import logo1 from '../Images/logo1.png'
+// import logo1 from '../Images/logo1.png'
 class Navbar extends Component { 
     render() {
 

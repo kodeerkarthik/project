@@ -15,7 +15,7 @@ import doc6 from '../Images/doc6.jpg';
 import doc7 from '../Images/doc7.jpg';
 import doc8 from '../Images/doc8.jpeg';
 
-import { Card, CardImg, CardText, CardBody,CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,CardTitle,Button } from 'reactstrap';
 class About extends Component {
     render() {
         return (
