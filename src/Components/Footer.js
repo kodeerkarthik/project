@@ -7,7 +7,7 @@ class Footer extends Component {
                 <div className='row'>
                     <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                         <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <h2>Company</h2><br/>
+                            <h2>About us</h2><br/>
                             <p className='foot_p'>About us</p>
                             <p className='foot_p'>Blog</p>
                             <p className='foot_p'>News</p>

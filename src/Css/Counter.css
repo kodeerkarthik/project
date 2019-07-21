@@ -22,7 +22,8 @@
     color: rgb(243, 9, 9);
     /* padding-left: 2px; */
 }
-.eachcounter h1 {
+.countnum {
     color: white;
     -webkit-text-stroke: 1px red;
+    margin-top: 0;
 }
