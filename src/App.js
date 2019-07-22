@@ -6,7 +6,6 @@ import News from './Components/News'
 import Service from './Components/Service'
 import Contact from './Components/Contact'
 import Title from './Components/Title'
-import bhanu from './Components/bhanu'
 
 import './App.css';
 import {BrowserRouter as Router, Route, Switch,} from 'react-router-dom';
@@ -16,7 +15,6 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-        <Route exact path='/bhanu' component={bhanu}></Route>
           <Route exact path='/' component={Signup}></Route>
           <Route exact path='/home' component={Home}></Route>
           <Route exact path='/service' component={Service}></Route>

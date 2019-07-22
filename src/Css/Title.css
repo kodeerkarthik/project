@@ -20,7 +20,7 @@ section:before {
 video {
     object-fit: cover;
 }
-/* h1 {
+.title {
     margin:0;
     padding: 0;
     position: absolute;
@@ -34,13 +34,13 @@ video {
     letter-spacing: 0.2em;
     
 }
-h1 span {
+.title span {
     opacity: 0;
     display: inline-block;
-    animation: animate 1s linear forwards;
+    animation: animate1 1s linear forwards;
     
-} */
-@keyframes animate {
+}
+@keyframes animate1 {
     0% {
         opacity: 0;
         transform: rotateY(90deg);
@@ -52,37 +52,37 @@ h1 span {
         filter: blur(0);
     }
 }
-/* h1 span:nth-child(1) {
+.title span:nth-child(1) {
     animation-delay: 1s;
 }
-h1 span:nth-child(2) {
+.title span:nth-child(2) {
     animation-delay: 1.75s;
 }
-h1 span:nth-child(3) {
+.title span:nth-child(3) {
     animation-delay: 2.5s;
 }
-h1 span:nth-child(4) {
+.title span:nth-child(4) {
     animation-delay: 2.75s;
 }
-h1 span:nth-child(5) {
+.title span:nth-child(5) {
     animation-delay: 3s;
 }
 
-h1 span:nth-child(6) {
+.title span:nth-child(6) {
     animation-delay: 3.5s;
 }
-h1 span:nth-child(7) {
+.title span:nth-child(7) {
     animation-delay: 3.75s;
 }
-h1 span:nth-child(8) {
+.title span:nth-child(8) {
     animation-delay: 4s;
 }
-h1 span:nth-child(9) {
+.title span:nth-child(9) {
     animation-delay: 4.5s;
 }
-h1 span:nth-child(10) {
+.title span:nth-child(10) {
     animation-delay: 4.75s;
 }
-h1 span:nth-child(11) {
+.title span:nth-child(11) {
     animation-delay: 5s;
-} */
+}
