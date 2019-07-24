@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
 // import Footer from './Footer';
+import { userSignup, userSignin} from  './user';
+
+
 
 import '../Css/Signup.css';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
@@ -26,18 +29,47 @@ class Signup extends Component {
     handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
     }
+    handleSignin=()=>{
+        let reqobj1={
+            email1:this.state.email,
+            password1:this.state.password,
+        }
+        userSignin (reqobj1).then(res => {
+            this.props.history.push('/')
+            })        
+    }
+
+
+
     handleSubmit=(e)=>{
-    
+        e.preventDefault();
         let t=0;
         let reqobj={
             firstname1:this.state.firstname,
             lastname1:this.state.lastname,
-            email1:this.state.username,
+            email1:this.state.email,
             password1:this.state.password,
             mobile1:this.state.mobile 
         }
-        let ary=this.state.array.push(reqobj)
-        this.setState({ary});
+
+        console.log(reqobj);
+
+
+
+        userSignup (reqobj).then(res => {
+        // if (firstname && username && email && password && confirmPassword && mobileNumber) {
+        this.props.history.push('/')
+        // }
+        })
+        .catch (res=> {
+            prompt(res)
+        })
+    
+        
+  
+
+
+        
         // let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.username.length, pwdl=this.state.password.length, mobl=this.state.mobile.lenght ;
         let reg_user=/^[A-Za-z0-9]{2,10}$/;
         let reg_pwd=/^[@#][A-Za-z0-9]{7,13}$/;
@@ -84,21 +116,6 @@ class Signup extends Component {
         }
     }  
 
-
-
-
-
-
-
-    
-    
-      
-
-    // constructor(props) {
-    //     super(props);
-        // this.state = { modal: false,login_modal: false};
-
-    // }
     toggle=()=> {
         debugger;
         this.setState({
@@ -167,9 +184,9 @@ class Signup extends Component {
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6 login_image"></div>
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                 <h1 className='login_heading'>SIGN IN</h1>
-                                    <input type='text' className='input_box' placeholder='Email..'></input>
-                                    <input type='password' className='input_box' placeholder='Password..'></input>                                                 
-                                    <button type="button" class="btn btn-success login_btn">SIGN IN</button>
+                                    <input type='text' name='email' onChange={this.handleChange} className='input_box' placeholder='Email..'></input>
+                                    <input type='password'name='password' onChange={this.handleChange} className='input_box' placeholder='Password..'></input>                                                 
+                                    <button onClick={this.handleSignin} type="button" class="btn btn-success login_btn">SIGN IN</button>
                                 </div>    
                         </ModalBody>
                         <ModalFooter>
