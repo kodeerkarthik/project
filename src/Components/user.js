@@ -21,7 +21,7 @@ console.log(err.response.data)
 
 export const userSignin = user => {
 return axios
-.post('login', {
+.post('signin', {
 email: user.email1,
 password: user.password1
 })
