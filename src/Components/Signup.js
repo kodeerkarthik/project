@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
 // import Footer from './Footer';
+import browserHistory from '../Utils/browserHistory'
 import { userSignup, userSignin} from  './user';
-
-
-
+import api from '../Api/index';
 import '../Css/Signup.css';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
@@ -22,60 +21,20 @@ class Signup extends Component {
             emailError:'',
             passwordError:'',
             mobileError:'',
-            modal: false,login_modal: false,
-            array:[] 
+            modal: false,login_modal: false
+            
         }
     }
-    handleChange=(e)=>{
-        this.setState({[e.target.name]:e.target.value});
-    }
-    handleSignin=()=>{
-        let reqobj1={
-            email1:this.state.email,
-            password1:this.state.password,
-        }
-        userSignin (reqobj1).then(res => {
-            this.props.history.push('/')
-            })        
-    }
-
-
-
-    handleSubmit=(e)=>{
-        e.preventDefault();
-        let t=0;
-        let reqobj={
-            firstname1:this.state.firstname,
-            lastname1:this.state.lastname,
-            email1:this.state.email,
-            password1:this.state.password,
-            mobile1:this.state.mobile 
-        }
-
-        console.log(reqobj);
-
-
-
-        userSignup (reqobj).then(res => {
-        // if (firstname && username && email && password && confirmPassword && mobileNumber) {
-        this.props.history.push('/')
-        // }
-        })
-        .catch (res=> {
-            prompt(res)
-        })
-    
+    handleSubmit = async () => {
+     
+        const { firstname,lastname,email,password,mobile } = this.state
+        const payload = { firstname,lastname,email,password,mobile }
         
-  
-
-
-        
-        // let fnamel=this.state.firstname.length, lnamel=this.state.lastname.length, emaill=this.state.username.length, pwdl=this.state.password.length, mobl=this.state.mobile.lenght ;
         let reg_user=/^[A-Za-z0-9]{2,10}$/;
         let reg_pwd=/^[@#][A-Za-z0-9]{7,13}$/;
         let reg_email=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let reg_mob=/^(\+\d{1,3}[- ]?)?\d{10}$/;
-       
+        let t=0;
         if(!this.state.firstname) this.setState({fnameError:'Firstname is required'});
         else if(!reg_user.test(this.state.firstname)) this.setState({fnameError:'Invalid Firstname'});
         else{
@@ -110,11 +69,41 @@ class Signup extends Component {
         }
         
         if(t>4) {
-            // this.props.REG();
-            // browserHistory.push('/');
-            
-        }
-    }  
+            console.log("hii")
+            await api.signup(payload).then(res => {
+                this.setState({
+                    firstname: '',
+                    lastname: '',
+                    email: '',
+                    password:'',
+                    mobile:''
+                })
+                console.log('hello')
+                browserHistory.push("/service");
+            });
+                
+        }       
+    }
+
+    handleChange=(e)=>{
+        this.setState({[e.target.name]:e.target.value});
+    }
+    handleSignin=async()=>{
+        const { email,password} = this.state;
+        const payload = { email,password }
+        await api.signin(payload).then(res => {
+            this.setState({
+                email: '',
+                password:''
+            })
+            alert(res.data);
+            browserHistory.push("/");
+        })
+        .catch(
+            alert("hogo thika muchkandu")
+        )
+       
+    }
 
     toggle=()=> {
         debugger;
@@ -195,7 +184,7 @@ class Signup extends Component {
                         </ModalFooter>
                     </form>
                 </Modal>
-                {/* <Footer/> */}
+                
             </div> 
         );
     }

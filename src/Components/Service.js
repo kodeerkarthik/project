@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { getdetails} from  './user';
+
 import Logo from './Logo';
 import Navbar from './Navbar';
 import Counter from './Counter';
@@ -18,9 +20,22 @@ import { Card, CardImg, CardText, CardBody,CardTitle, Button } from 'reactstrap'
 class Service extends Component {
     constructor( props ){
         super( props )
-        this.state = { doctor_show : false,patient_show:false,ward_show : false,staff_show:false };
+        this.state = { 
+            doctors:'',
+            patients:'',
+            wards:'',
+            staff:'',
+            doctor_show : false,
+            patient_show:false,
+            ward_show : false,
+            staff_show:false 
+        };
     }
     toggleDoctors = () => {
+        getdetails ().then(res => {
+            console.log(res);
+            // const detail=res;
+        })
         this.setState( { doctor_show : true,patient_show:false,ward_show : false,staff_show:false  } )
     }
     togglePatients = () => {
