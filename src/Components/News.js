@@ -16,6 +16,14 @@ class News extends Component {
                 <Logo/>
                 <div><Navbar/></div>
                     <div className='row'>
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pagebg">
+                            <div className='home_name'>NEWS</div>
+                        </div>
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+                    </div>
+
+                    <div className='row'>
                         <div className='col-xs-8 col-sm-8 col-md-8 col-lg-8'></div>
                         <div className='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
                             <div className='newssearch'>

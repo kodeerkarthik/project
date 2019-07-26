@@ -52,6 +52,14 @@ class Service extends Component {
             <div className='service_body'>
                 <Logo/>
                 <div><Navbar/></div>
+                    <div className='row'>
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pagebg">
+                            <div className='home_name'>SERVICE</div>
+                        </div>
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+                    </div>
+
                     <div className="row margin_top">
                         <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                         <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 row service_list">
