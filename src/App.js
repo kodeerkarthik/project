@@ -6,6 +6,8 @@ import News from './Components/News'
 import Service from './Components/Service'
 import Contact from './Components/Contact'
 import Title from './Components/Title'
+import Demo from './Components/Demo'
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import './App.css';
 import {BrowserRouter as Router, Route, Switch,} from 'react-router-dom';
@@ -16,6 +18,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Signup}></Route>
+          {/* <Route exact path='/demo' component={Demo}></Route> */}
           <Route exact path='/home' component={Home}></Route>
           <Route exact path='/service' component={Service}></Route>
           <Route exact path='/about' component={About}></Route>
