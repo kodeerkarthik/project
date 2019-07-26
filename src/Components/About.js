@@ -14,9 +14,23 @@ import doc5 from '../Images/doc5.jpg';
 import doc6 from '../Images/doc6.jpg';
 import doc7 from '../Images/doc7.jpg';
 import doc8 from '../Images/doc8.jpeg';
+import axios from 'axios';
 
 import { Card, CardImg, CardText, CardBody,CardTitle,Button } from 'reactstrap';
 class About extends Component {
+    constructor( props ){
+        super( props )
+        this.state = { 
+            users:''
+        }
+    }
+    componentDidMount(){
+        axios.get('http://localhost:8000/details')
+        .then(res => {
+            this.setState({users: res.data});
+            console.log(this.state.users);
+        });
+    }
     render() {
         return (
             <div className='about_body'>

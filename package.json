@@ -6,9 +6,12 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "carousel": "0.0.3",
     "font-awesome": "^4.7.0",
     "mdbreact": "^4.18.0",
     "react": "^16.8.6",
+    "react-count-to": "^0.12.0",
+    "react-countup": "^4.2.0",
     "react-dom": "^16.8.6",
     "react-modal": "^3.9.1",
     "react-router-dom": "^5.0.1",
@@ -37,5 +40,4 @@
       "last 1 safari version"
     ]
   }
- 
 }

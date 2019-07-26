@@ -158,7 +158,7 @@ class News extends Component {
                                             </select>
                                             <button type="button" class="btn btn-danger opt_btn">SUBMIT</button>
                                         </CardText>
-                                    </CardBody>
+                                    </CardBody> 
                                 </Card>
                             </div>
                         

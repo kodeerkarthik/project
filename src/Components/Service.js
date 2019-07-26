@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getdetails} from  './user';
-
+import axios from 'axios'; //for accesing data from db
 import Logo from './Logo';
 import Navbar from './Navbar';
 import Counter from './Counter';
@@ -21,10 +21,6 @@ class Service extends Component {
     constructor( props ){
         super( props )
         this.state = { 
-            doctors:'',
-            patients:'',
-            wards:'',
-            staff:'',
             doctor_show : false,
             patient_show:false,
             ward_show : false,
@@ -32,10 +28,6 @@ class Service extends Component {
         };
     }
     toggleDoctors = () => {
-        getdetails ().then(res => {
-            console.log(res);
-            // const detail=res;
-        })
         this.setState( { doctor_show : true,patient_show:false,ward_show : false,staff_show:false  } )
     }
     togglePatients = () => {
@@ -47,6 +39,7 @@ class Service extends Component {
     toggleStaffs = () => {
         this.setState( { doctor_show : false,patient_show:false,ward_show : false,staff_show:true } )
     }
+   
     render() {
         return (
             <div className='service_body'>
@@ -215,30 +208,70 @@ class Service extends Component {
     }
 }
 class Dcontent extends Component{
+    state = { users:[]}
+    componentDidMount(){
+        axios.get('http://localhost:8000/details')
+        .then(res => {
+            this.setState({users: res.data});
+            console.log(this.state.users);
+        });
+    }
     render(){
         return(
-            <div className='onimagetext'>Number of Doctors  :   20</div>
+            <div className='onimagetext'>
+               <div> Number of Doctors  :   {this.state.users.map(user => <span>{user.doctors}</span>)}</div>
+            </div>
         )
     }
 }
 class Pcontent extends Component{
+    state = { users:[]}
+    componentDidMount(){
+        axios.get('http://localhost:8000/details')
+        .then(res => {
+            this.setState({users: res.data});
+            console.log(this.state.users);
+        });
+    }
     render(){
         return(
-            <div className='onimagetext'>Number of Patients :   68</div>
+            <div className='onimagetext'>
+                Number of Patients :  {this.state.users.map(user => <span>{user.patients}</span>)}
+            </div>
         )
     }
 }
 class Wcontent extends Component{
+    state = { users:[]}
+    componentDidMount(){
+        axios.get('http://localhost:8000/details')
+        .then(res => {
+            this.setState({users: res.data});
+            console.log(this.state.users);
+        });
+    }
     render(){
         return(
-            <div className='onimagetext'>Number of Wards    :   70</div>
+            <div className='onimagetext'>
+                Number of Wards    :   {this.state.users.map(user => <span>{user.wards}</span>)}
+            </div>
         )
     }
 }
 class Scontent extends Component{
+    state = { users:[]}
+    componentDidMount(){
+        axios.get('http://localhost:8000/details')
+        .then(res => {
+            this.setState({users: res.data});
+            console.log(this.state.users);
+        });
+    }
     render(){
         return(
-            <div className='onimagetext'>Number of Staff    :   80</div>
+            <div className='onimagetext'>
+                Number of Staff    :   {this.state.users.map(user => <span>{user.staff}</span>)}
+            </div>
         )
     }
 }
