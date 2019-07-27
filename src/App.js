@@ -18,11 +18,11 @@ function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={Signup}></Route>
-          {/* <Route exact path='/demo' component={Demo}></Route> */}
+          <Route exact path='/demo' component={Demo}></Route>
           <Route exact path='/home' component={Home}></Route>
           <Route exact path='/service' component={Service}></Route>
           <Route exact path='/about' component={About}></Route>
-          <Route exact path='/news' component={News}></Route>
+          <Route exact path='/news' component={News}></Route> 
           <Route exact path='/title' component={Title}></Route>
           <Route exact path='/contact' component={Contact}></Route>
         </Switch>

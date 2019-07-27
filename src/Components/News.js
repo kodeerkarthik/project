@@ -10,6 +10,52 @@ import '../Css/News.css';
 import newsimg from '../Images/newsimg.png';
 import { Card, CardImg, CardText, CardBody,CardTitle} from 'reactstrap';
 class News extends Component {
+    constructor( props ){
+        super( props )
+        this.state = { 
+            // store:[]
+            medicine : 0,
+            pharmacy:0,
+            uncategorized : 0,
+            doctors:0,
+            inovations:0
+        };
+    }
+    // componentDidMount(){
+    //     axios.get('http://localhost:8000/details')
+    //     .then(res => {
+    //         this.setState({store: res.data});
+    //         console.log(this.state.store);
+    //     });
+    // }
+
+    medicineCount=()=>{  
+        // this.setState({[e.target.name]:e.target.value+1});
+        this.setState(prevState =>{
+            return {medicine:prevState.medicine + 1}
+        })
+    }
+    pharmacyCount=()=>{  
+        this.setState(prevState =>{
+            return {pharmacy:prevState.pharmacy + 1}
+        })
+    }
+    uncategorizedCount=()=>{  
+        this.setState(prevState =>{
+            return {uncategorized:prevState.uncategorized + 1}
+        })
+    }
+    doctorsCount=()=>{  
+        this.setState(prevState =>{
+            return {doctors:prevState.doctors + 1}
+        })
+    }
+    inovationsCount=()=>{  
+        this.setState(prevState =>{
+            return {inovations:prevState.inovations + 1}
+        })
+    }
+
     render() {
         return (
             <div className='newsbody'>
@@ -76,27 +122,6 @@ class News extends Component {
                                     implanted through a medical procedure or surgery in order to reach the ...</div>
                                 </div>
                             </div>
-
-
-
-                            {/* <Card className='card ncard'>
-                                <CardBody className='c_body'>
-                                    <CardTitle className='c_title'>News #1</CardTitle>
-                                    <CardText className='c_txt'>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                </CardBody>
-                            </Card>
-                            <Card className='card ncard'>
-                                <CardBody className='c_body'>
-                                    <CardTitle className='c_title'>News #2</CardTitle>
-                                    <CardText className='c_txt'>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                </CardBody>
-                            </Card>
-                            <Card className='card ncard'>
-                                <CardBody className='c_body'>
-                                    <CardTitle className='c_title'>News #3</CardTitle>
-                                    <CardText className='c_txt'>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                                </CardBody>
-                            </Card> */}
                         </div>       
                     </div> 
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div> 
@@ -110,19 +135,19 @@ class News extends Component {
                                         <CardTitle className='c_title head1'>​CATEGORIES</CardTitle>
                                         <CardText className='c_txt cat_txt'>
                                             <div>
-                                                <span className='cat_span'>Medicine</span><span className='cat_span_count'>0</span>
+                                                <span className='cat_span'>Medicine</span><span className='cat_span_count'>{this.state.medicine}</span>
                                             </div>
                                             <div>
-                                                <span className='cat_span'>Pharmacy</span><span className='cat_span_count'>0</span>
+                                                <span className='cat_span'>Pharmacy</span><span className='cat_span_count'>{this.state.pharmacy}</span>
                                             </div>
                                             <div>
-                                                <span className='cat_span'>Uncategorized</span><span className='cat_span_count'>0</span>
+                                                <span className='cat_span'>Uncategorized</span><span className='cat_span_count'>{this.state.uncategorized}</span>
                                             </div>
                                             <div>
-                                                <span className='cat_span'>Doctors</span><span className='cat_span_count'>0</span>
+                                                <span className='cat_span'>Doctors</span><span className='cat_span_count'>{this.state.doctors}</span>
                                             </div>
                                             <div>
-                                                <span className='cat_span'>Innovations</span><span className='cat_span_count'>0</span>
+                                                <span className='cat_span'>Innovations</span><span className='cat_span_count'>{this.state.inovations}</span>
                                             </div>
                                         </CardText>
                                     </CardBody>
@@ -134,31 +159,32 @@ class News extends Component {
                                     <CardBody className='c_body'>
                                         <CardTitle className='c_title head1'>​MAKE AN APPOINTMENT</CardTitle>
                                         <CardText className='c_txt cat_txt'>
-                                            <select className='optmt_dropdown'>
+                                            <select className='optmt_dropdown' name='medicine' onChange={this.medicineCount}>
+
                                                 <option>Medicine</option>
                                                 <option>Anacine</option>
                                                 <option>Vics action 500</option>
                                                 <option>Biotiono 10000</option>
                                                 <option>Zandu balm</option>
                                             </select>
-                                            <select className='optmt_dropdown'>
+                                            <select className='optmt_dropdown' name='pharmacy' onChange={this.pharmacyCount}>
                                                 <option>Pharmacy</option>
                                                 <option>B Pharmacy</option>
                                                 <option>M Pharmacy</option>
                                             </select>
-                                            <select className='optmt_dropdown'>
+                                            <select className='optmt_dropdown' name='uncategorized' onChange={this.uncategorizedCount}>
                                                 <option>Uncategorized</option>
                                                 <option>Medicine</option>
                                                 <option>Pharmacy</option>
                                                 <option>Pharmacy</option>
                                             </select>
-                                            <select className='optmt_dropdown'>
+                                            <select className='optmt_dropdown' name='doctors' onChange={this.doctorsCount}>
                                                 <option>Doctors</option>
                                                 <option>Medicine</option>
                                                 <option>Pharmacy</option>
                                                 <option>Pharmacy</option>
                                             </select>
-                                            <select className='optmt_dropdown'>
+                                            <select className='optmt_dropdown' name='inovations' onChange={this.inovationsCount}>
                                                 <option>Innovations</option>
                                                 <option>3D Models To Shorten Surgeries</option>
                                                 <option>AI Robot</option>

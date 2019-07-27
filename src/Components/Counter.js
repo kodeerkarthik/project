@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CountTo from 'react-count-to';
+// import CountTo from 'react-count-to';
 
 
 

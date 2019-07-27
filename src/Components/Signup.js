@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
 // import Footer from './Footer';
-import browserHistory from '../Utils/browserHistory'
+import browserHistory from '../Utils/browserHistory' 
 import { userSignup, userSignin} from  './user';
 import api from '../Api/index';
 import '../Css/Signup.css';
@@ -26,7 +26,7 @@ class Signup extends Component {
         }
     }
     handleSubmit = async () => {
-     
+     debugger;
         const { firstname,lastname,email,password,mobile } = this.state
         const payload = { firstname,lastname,email,password,mobile }
         
@@ -99,9 +99,7 @@ class Signup extends Component {
             alert(res.data);
             browserHistory.push("/");
         })
-        .catch(
-            alert("hogo thika muchkandu")
-        )
+        
        
     }
 

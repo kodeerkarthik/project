@@ -6,7 +6,7 @@ class Title extends Component {
         return (
             <div className='title_body'>
                 <section>
-                    <video src={smoke} autoplay='true'  loop='true'></video>
+                    <video src={smoke} autoplay='true'  ></video>
                     <h1 className='title'>
                         <span>H</span>
                         <span>E</span> 

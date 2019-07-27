@@ -7,11 +7,13 @@ export const signup = payload => api.post('/signup', payload)
 
 export const signin = payload => api.post('/signin',payload)
 
+export const appoint = payload => api.post('/appointment',payload)
+
 
 const apis = {
 signup,
-signin
-
+signin,
+appoint
 }
 
 export default apis
