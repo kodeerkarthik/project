@@ -5,6 +5,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import api from '../Api/index';
 import { Card, CardText, CardBody,CardTitle} from 'reactstrap';
+import DatePicker from "react-datepicker";
 
 
 class Contact extends Component {
@@ -19,11 +20,35 @@ class Contact extends Component {
             emailError:'',
             passwordError:'',
             messageError:'',
+            startDate: new Date(),
+            department:'',
+            doctor:'',
+            patient:'',
         }
     }
+    handleDate=(date)=> {
+        this.setState({
+          startDate: date
+        });
+      }
 
     handleChange=(e)=>{
         this.setState({[e.target.name]:e.target.value});
+    }
+
+
+    handleclick = async () => {
+        const { department,doctor,patient,startDate} = this.state;
+        const payload = {department,doctor,patient,startDate}
+        console.log(payload)
+        await api.selectDoctor(payload).then(res => {
+            this.setState({
+                department: '',
+                doctor: '',
+                patient:'',
+                startDate:''
+            })
+        })
     }
 
     handleSubmit = async () => {
@@ -112,10 +137,37 @@ class Contact extends Component {
                                     <CardBody className='c_body'>
                                     <CardTitle className='c_title'><h1>Make an appointment</h1><hr/></CardTitle>
                                     <CardText className='c_txt'>
-                                        <h2>Department :</h2>
-                                        <h2>Doctor Name :</h2>
-                                        <h2>Patient Name :</h2>
-                                        <h2>Date and Time :</h2>
+                                        <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                            <option>Department</option>
+                                            <option>Cardiology</option>
+                                            <option>Dermatology</option>
+                                            <option>Immunology</option>
+                                            <option>Hepatology</option>
+                                            <option>Psychiatry</option>
+                                            <option>Endocrinology</option>
+                                        </select>
+                                        <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                            <option>Doctor Name</option>
+                                            <option>Sujatha Datt</option>
+                                            <option>Vandana Murthy</option>
+                                            <option>David Carson</option>
+                                            <option>Michel Smith</option>
+                                            <option>Sumitha Singh</option>
+                                            <option>Smrithi Mandana</option>
+                                            <option>Mogambo</option>
+                                            <option>Gold Smith</option>
+                                        </select>
+                                        <input type='text' placeholder='Patient Name' className='contactDoctor' name='patient' onChange={this.handleChange}/>
+                                        <DatePicker className='contactDoctor'
+                                            selected={this.state.startDate}
+                                            onChange={this.handleDate}
+                                            showTimeSelect
+                                            timeFormat="HH:mm"
+                                            timeIntervals={15}
+                                            dateFormat="MMMM d, yyyy h:mm aa"
+                                            timeCaption="time"
+                                        />
+                                        <input type='button' className='contactDoctorBTN' value='SUBMIT' onClick={this.handleclick}/>
                                     </CardText>
                                     </CardBody>
                                 </Card>

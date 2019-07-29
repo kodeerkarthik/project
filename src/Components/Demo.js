@@ -76,7 +76,7 @@ class Example extends React.Component {
     return (
       <div className='demobody'>
        <span className='date'>
-      <DatePicker 
+      <DatePicker  
         selected={this.state.startDate}
         onChange={this.handleChange}
       />
@@ -90,6 +90,19 @@ class Example extends React.Component {
         dateFormat="h:mm aa"
         timeCaption="Time"
       />
+
+
+      <div className='search_box1'>
+        <input className='search_txt1' type="text" placeholder='Type to search'></input>
+        <a className="search_btn1" href="#"><i className="fa fa-search"></i></a>
+      </div>
+
+
+
+
+
+
+
       </div>
     );
   }

@@ -9,11 +9,14 @@ export const signin = payload => api.post('/signin',payload)
 
 export const appoint = payload => api.post('/appointment',payload)
 
+export const selectDoctor = payload => api.post('/selectDoctor',payload)
+
 
 const apis = {
 signup,
 signin,
-appoint
+appoint,
+selectDoctor
 }
 
 export default apis
