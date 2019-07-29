@@ -31,3 +31,38 @@
     transform: rotate(360deg);
   }
 }
+
+.slide {
+  height:100%;
+  
+  border: 0;
+  width: 100%;
+  }
+  
+  .react-slideshow-container + div.indicators > div{
+  height: 20px;
+  width: 20px;
+  margin-bottom: 100px;
+  border: 1px solid white;
+  background: red;
+  }
+  .react-slideshow-container + div.indicators > div.active{
+  background: greenyellow;
+  width: 25px;
+  height: 25px;
+  }
+  .react-slideshow-container .nav {
+  opacity: 0;
+  }
+  .slidepara{
+  font-size: 20px;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .slideparahead {
+    font-size: 40px;
+    color: red;
+    margin-bottom: 20px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px white;
+  }
