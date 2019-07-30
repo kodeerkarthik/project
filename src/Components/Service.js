@@ -61,7 +61,7 @@ class Service extends Component {
                                     <img src={clip1} alt={"logo"} className='clips'></img>
                                </div> 
                                <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
-                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                                    <h1 className='ser-head'>Cardiology</h1>
                                 </div>
                                <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
                                     <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
@@ -73,11 +73,12 @@ class Service extends Component {
                                     <img src={clip2} alt={"logo"} className='clips'></img>
                                </div> 
                                <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
-                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                                    <h1 className='ser-head'>Intensive Care Unit</h1>
                                </div>
                                <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
-                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                                    <p>ICU A special department of a hospital or health care facility that provides intensive treatment 
+                                        medicine and caters to patients with severe and life-threatening illnesses and injuries, which require 
+                                        constant, close monitoring and support from specialist equipment and medications</p>
                                </div> 
                             </div>
                             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
@@ -85,11 +86,12 @@ class Service extends Component {
                                     <img src={clip3} alt={"logo"} className='clips'></img>
                                </div> 
                                <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white ">
-                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                                    <h1 className='ser-head'>Info Management</h1>
                                </div>
                                <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
-                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                                    <p>Meaningful information can be used in quality management, continuous quality improvement and peer review. 
+                                        By improving the quality of information, core data can be provided for randomized clinical trials, outcomes 
+                                        research and many studies.</p>
                                </div> 
                             </div>
                             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
@@ -97,11 +99,12 @@ class Service extends Component {
                                     <img src={clip5} alt={"logo"} className='clips'></img>
                                </div> 
                                <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
-                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                                    <h1 className='ser-head'>Medical Records</h1>
                                </div>
                                <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
-                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                                    <p>Includes a variety of types of "notes" entered over time by health care professionals, recording 
+                                        observations and administration of drugs and therapies, orders for the administration of drugs and 
+                                        therapies, test results, x-rays, reports, etc.</p>
                                </div> 
                             </div>
                             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
@@ -109,11 +112,11 @@ class Service extends Component {
                                     <img src={clip6} alt={"logo"} className='clips'></img>
                                </div> 
                                <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white">
-                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                                    <h1 className='ser-head'>Gynecology</h1>
                                </div>
                                <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
-                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                                    <p>Specialist nurses, midwives and imaging technicians provide maternity services such as: 
+                                        antenatal and postnatal care, maternal and foetal surveillance, and prenatal diagnosis.</p>
                                </div> 
                             </div>
                             <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 row">
@@ -121,11 +124,11 @@ class Service extends Component {
                                     <img src={clip4} alt={"logo"} className='clips'></img>
                                </div> 
                                <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 white ">
-                                    <h1 className='ser-head'>CARDIOLOGY</h1>
+                                    <h1 className='ser-head'>Physiotherapy</h1>
                                </div>
                                <div className='col-xs-12 col-sm-12 col-md-12 col-lg-12 white justify'>
-                                    <p>Plan covers the cost of medically necessary hospital services, provided at a hospital, on an inpatient or outpatient 
-                                    basis within Canada. You must be registered under the NWT Health Care Plan to receive these services.</p>
+                                    <p>Physiotherapists work through physical therapies such as exercise, massage, and manipulation of bones, 
+                                        joints and muscle tissues.</p>
                                </div> 
                             </div>
                         </div>   

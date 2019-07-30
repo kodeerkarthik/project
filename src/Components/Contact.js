@@ -52,7 +52,7 @@ class Contact extends Component {
     }
 
     handleSubmit = async () => {
-        
+        debugger
         const { name,email,password,message } = this.state;
         const payload = { name,email,password,message }
         
@@ -84,8 +84,9 @@ class Contact extends Component {
             t++;
             this.setState({passwordError:''});
         }
-        if(t>3) {
-            await api.appoint(payload).then(res => {
+        console.log(this.state);
+        if(t>2) {
+            await api.appoint(payload).then(res => { 
                 this.setState({
                     name: '',
                     email: '',
@@ -114,7 +115,7 @@ class Contact extends Component {
                         <div className="col-xs-10 col-sm-10 col-md-10 col-lg-10 row">
                             <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                 <div className='shadow'>
-                                <form className='form_box'>
+                                <div className='form_box'>
                                     <h1>Apointment form</h1>
                                     <input type='text' name='name' placeholder='Name' onChange={this.handleChange}/>
                                     <p className='red'>{this.state.nameError}</p>
@@ -125,7 +126,7 @@ class Contact extends Component {
                                     <textarea  placeholder='Message' name='message' onChange={this.handleChange}></textarea>
                                     <p className='red'>{this.state.messageError}</p> 
                                     <input type='submit' onClick={this.handleSubmit} value='Submit'></input>
-                                </form>
+                                </div>
                                 </div>
 
 

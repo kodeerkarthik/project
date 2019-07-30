@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Logo from './Logo';
 // import Footer from './Footer';
+import axios from 'axios';
 import browserHistory from '../Utils/browserHistory' 
 import { userSignup, userSignin} from  './user';
 import api from '../Api/index';
@@ -21,7 +22,8 @@ class Signup extends Component {
             emailError:'',
             passwordError:'',
             mobileError:'',
-            modal: false,login_modal: false
+            modal: false,login_modal: false,
+            signupdetails:[]
             
         }
     }
@@ -115,7 +117,27 @@ class Signup extends Component {
         });
     }
 
+ 
+    
+    componentDidMount(){
+        debugger
+        axios.get('http://localhost:8000/signup')
+        .then(res => {
+            this.setState({signupdetails: res.data});
+            console.log(this.state.signupdetails);
+        });
+    }
+    render(){
+        return(
+            <div className='onimagetext'>
+                Number of Wards    :   {this.state.users.map(user => <span>{user.wards}</span>)}
+            </div>
+        )
+    }
+
+
     render() {
+        
         return ( 
             <div className="body">
                 <Logo/>
@@ -162,8 +184,6 @@ class Signup extends Component {
                         </ModalFooter>
                     </form>
                 </Modal>
-
-
 
                 <Modal isOpen={this.state.login_modal} className='signin_modal'>
                     <form onSubmit={this.handleSubmit} className='login_form'> 
