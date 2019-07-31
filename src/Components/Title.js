@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import '../Css/Title.css'
 import smoke from '../Images/smoke.mp4'
+import browserHistory from '../Utils/browserHistory' 
+import Home from '../Components/Home'
 class Title extends Component {
+    componentDidMount() {
+        setTimeout(() => {
+            browserHistory.push('/home')
+        }, 8000)
+    }
+
+
     render() {
         return (
             <div className='title_body'>

@@ -6,7 +6,7 @@ import Footer from './Footer';
 import api from '../Api/index';
 import { Card, CardText, CardBody,CardTitle} from 'reactstrap';
 import DatePicker from "react-datepicker";
-
+import browserHistory from '../Utils/browserHistory' 
 
 class Contact extends Component {
     constructor(props){
@@ -38,6 +38,7 @@ class Contact extends Component {
 
 
     handleclick = async () => {
+        debugger
         const { department,doctor,patient,startDate} = this.state;
         const payload = {department,doctor,patient,startDate}
         console.log(payload)
@@ -93,6 +94,7 @@ class Contact extends Component {
                     password:'',
                     message:''
                 })
+                browserHistory.push("/contact");
             })
         }
     }
@@ -128,8 +130,6 @@ class Contact extends Component {
                                     <input type='submit' onClick={this.handleSubmit} value='Submit'></input>
                                 </div>
                                 </div>
-
-
                             </div>
                             <div className="col-xs-1 col-sm-1 col-md-1 col-lg-1 row"></div>
                             <div className="col-xs-5 col-sm-5 col-md-5 col-lg-5">

@@ -22,9 +22,7 @@ class Signup extends Component {
             emailError:'',
             passwordError:'',
             mobileError:'',
-            modal: false,login_modal: false,
-            signupdetails:[]
-            
+            modal: false,login_modal: false,   
         }
     }
     handleSubmit = async () => {
@@ -91,18 +89,17 @@ class Signup extends Component {
         this.setState({[e.target.name]:e.target.value});
     }
     handleSignin=async()=>{
+        
         const { email,password} = this.state;
         const payload = { email,password }
         await api.signin(payload).then(res => {
-            this.setState({
-                email: '',
-                password:''
-            })
-            alert(res.data);
-            browserHistory.push("/");
+            if(res.data==="User succesfully signIn"){
+                alert("login succesfull")
+                browserHistory.push("title");
+            }
+            else
+                alert("login fail");
         })
-        
-       
     }
 
     toggle=()=> {
@@ -116,25 +113,6 @@ class Signup extends Component {
           login_modal: !this.state.login_modal
         });
     }
-
- 
-    
-    componentDidMount(){
-        debugger
-        axios.get('http://localhost:8000/signup')
-        .then(res => {
-            this.setState({signupdetails: res.data});
-            console.log(this.state.signupdetails);
-        });
-    }
-    render(){
-        return(
-            <div className='onimagetext'>
-                Number of Wards    :   {this.state.users.map(user => <span>{user.wards}</span>)}
-            </div>
-        )
-    }
-
 
     render() {
         
