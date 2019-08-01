@@ -21,7 +21,8 @@ class About extends Component {
     constructor( props ){
         super( props )
         this.state = { 
-            users:[]
+            users:[],
+            count1:0,count2:0,count3:0,count4:0,count5:0,count6:0,count7:0,count8:0
         }
     }
     componentDidMount(){
