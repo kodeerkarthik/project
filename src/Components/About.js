@@ -21,16 +21,18 @@ class About extends Component {
     constructor( props ){
         super( props )
         this.state = { 
-            users:''
+            users:[]
         }
     }
     componentDidMount(){
-        axios.get('http://localhost:8000/details')
+        axios.get('http://localhost:8000/selectdoctor')
         .then(res => {
+            console.log(res)
             this.setState({users: res.data});
             console.log(this.state.users);
         });
     }
+    
     render() {
         return (
             <div className='about_body'>
@@ -82,7 +84,7 @@ class About extends Component {
                         </div>
                     </div>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
-                </div>
+                </div> 
                 <div className='row margintop'>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                     <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
@@ -91,8 +93,18 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc1} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>Sujatha Datt</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardTitle className='card_ttl' >Sujatha Datt</CardTitle>
+                                    <CardText className='designation'>
+                                        Surgen
+                                        {this.state.users.map(category => {
+                                            if(category.doctor==='Sujatha Datt')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                            })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
                             </div>
@@ -101,7 +113,16 @@ class About extends Component {
                                     <CardImg top width="100%" height='250px' src={doc2} alt="Card image cap" />
                                     <CardBody>
                                     <CardTitle className='card_ttl'>Vandana Murthy</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardText className='designation'>Surgen
+                                    {this.state.users.map(category => {
+                                            if(category.doctor==='Vandana Murthy')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                        })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
                             </div>
@@ -110,7 +131,16 @@ class About extends Component {
                                     <CardImg top width="100%" height='250px' src={doc3} alt="Card image cap" />
                                     <CardBody>
                                     <CardTitle className='card_ttl'>David Carson</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardText className='designation'>Surgen
+                                    {this.state.users.map(category => {
+                                            if(category.doctor==='David Carson')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                        })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
                             </div>
@@ -119,7 +149,16 @@ class About extends Component {
                                     <CardImg top width="100%" height='250px' src={doc4} alt="Card image cap" />
                                     <CardBody>
                                     <CardTitle className='card_ttl'>Michel Smith</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardText className='designation'>Surgen
+                                    {this.state.users.map(category => {
+                                            if(category.doctor==='Michel Smith')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                        })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
                             </div>
@@ -136,7 +175,16 @@ class About extends Component {
                                     <CardImg top width="100%" height='250px' src={doc5} alt="Card image cap" />
                                     <CardBody>
                                     <CardTitle className='card_ttl'>Sumitha Singh</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardText className='designation'>Surgen
+                                    {this.state.users.map(category => {
+                                            if(category.doctor==='Sumitha Singh')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                        })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                
                             </div>
@@ -145,7 +193,16 @@ class About extends Component {
                                     <CardImg top width="100%" height='250px' src={doc6} alt="Card image cap" />
                                     <CardBody>
                                     <CardTitle className='card_ttl'>Smrithi Mandanna</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardText className='designation'>Surgen
+                                    {this.state.users.map(category => {
+                                            if(category.doctor==='Smrithi Mandanna')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                        })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                 
                             </div>
@@ -154,7 +211,16 @@ class About extends Component {
                                     <CardImg top width="100%" height='250px' src={doc7} alt="Card image cap" />
                                     <CardBody>
                                     <CardTitle className='card_ttl'>Mogambo</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardText className='designation'>Surgen
+                                        {this.state.users.map(category => {
+                                            if(category.doctor==='Mogambo')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                        })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
                             </div>
@@ -163,7 +229,16 @@ class About extends Component {
                                     <CardImg top width="100%" height='250px' src={doc8} alt="Card image cap" />
                                     <CardBody>
                                     <CardTitle className='card_ttl'>Gold Smith</CardTitle>
-                                    <CardText className='designation'>Surgen</CardText>
+                                    <CardText className='designation'>Surgen
+                                    {this.state.users.map(category => {
+                                            if(category.doctor==='Gold Smith')
+                                            return (
+                                            <h3>{category.patient}</h3>  
+                                            )
+                                        })}
+                                    </CardText>
+                                    <Button className='c_btn2'>Update</Button>
+                                    <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                
                             </div>

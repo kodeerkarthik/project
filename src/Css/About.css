@@ -30,6 +30,28 @@
     border:1px solid red;
     border-radius: 20px;
 }
+.c_btn1{
+    width: 30%;
+    margin:0 10px;
+    background: transparent;
+    color: red;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    border:1px solid red;
+    border-radius: 20px;
+    padding: 0;
+}
+.c_btn2{
+    width: 30%;
+    margin:0 10px;
+    background: transparent;
+    color: rgb(1, 59, 61);
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    border:1px solid rgb(1, 59, 61);
+    border-radius: 20px;
+    padding: 0;
+}
 .c_body {
     /* background-color: rgb(234, 250, 250); */
 }
