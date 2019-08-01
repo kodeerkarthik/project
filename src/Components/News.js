@@ -190,7 +190,7 @@ class News extends Component {
                                                 <option>AI Robot</option>
                                                 <option>OR Bottlenecks </option>
                                             </select>
-                                            <button type="button" class="btn btn-danger opt_btn">SUBMIT</button>
+                                            {/* <button type="button" class="btn btn-danger opt_btn">SUBMIT</button> */}
                                         </CardText>
                                     </CardBody> 
                                 </Card>

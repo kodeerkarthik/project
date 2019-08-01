@@ -25,3 +25,27 @@
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+
+
+    .para_btn{
+        margin:20px;
+        line-height: 30px;
+        width: 35px;
+        border-radius: 50%;
+        font-size: 18px;
+        font-weight: bold;
+        /* border: solid 1px white; */
+        background: red;
+        color: white;
+        box-shadow: 1px 1px 20px rgb(165, 189, 196);
+    }
+    .para_btn:hover {
+        background: rgb(232, 248, 0);
+        color: rgb(0, 27, 145);
+        box-shadow: 1px 1px 20px rgb(243, 186, 230);
+    }
+    .para_btn:focus {
+        background: white;
+        color: red;
+        box-shadow: 1px 1px 20px rgb(243, 186, 230);
+    }
