@@ -124,3 +124,18 @@
     width: 0;
     /* transition: 10s; */
 }
+.logout{
+    color: white;
+    border: solid 2px white;
+    background: transparent;
+    padding: 2px 20px;
+    font-weight: bold;
+}
+.logout:hover{
+    color: red;
+    border: solid 2px red;
+    background: white;
+    padding: 2px 20px;
+    font-weight: bold;
+    border-radius: 0 20px;
+}

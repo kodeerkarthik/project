@@ -193,7 +193,7 @@ class Service extends Component {
                         <div className='col-xs-5 col-sm-5 col-md-5 col-lg-5'>
                             <Card >
                                 <CardBody className='c_body '>
-                                    <CardTitle className='c_title '>heading</CardTitle>
+                                    <CardTitle className='c_title '>Details</CardTitle>
                                     <CardText >
                                         { this.state.doctor_show && <Dcontent /> }
                                         { this.state.patient_show && <Pcontent /> }

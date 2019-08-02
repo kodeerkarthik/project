@@ -26,13 +26,14 @@ class Navbar extends Component {
                         <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="Service">Services</a></li>
                         <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="News">News</a></li>
                         <li className='col-xs-1 col-sm-1 col-md-1 col-lg-1 itms'><a href="Contact">Contact Us</a></li>
-                        <li className="col-xs-2 col-sm-2 col-md-2 col-lg-2"></li>
+                        <li className="col-xs-1 col-sm-1 col-md-1 col-lg-1"></li>
                         <span className="col-xs-3 col-sm-3 col-md-3 col-lg-3 ">
                             <div className='search_box'>
                             <input className='search_txt' type="text" placeholder='Type to search'></input>
                             <a className="search_btn" href="#"><i className="fa fa-search"></i></a>
                             </div>
                         </span>
+                        <li className="col-xs-1 col-sm-1 col-md-1 col-lg-1 "><a href="/"><button className="logout">Logout</button></a></li>
                     </ul>
                 </nav>
                 {/* <script src='https://code.jquery.com/jquery-3.2.1.js'></script>

@@ -94,11 +94,11 @@ class Signup extends Component {
         const payload = { email,password }
         await api.signin(payload).then(res => {
             if(res.data==="User succesfully signIn"){
-                alert("login succesfull")
+                alert(res.data)
                 browserHistory.push("title");
             }
             else
-                alert("login fail");
+                alert(res.data);
         })
     }
 

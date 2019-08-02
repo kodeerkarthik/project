@@ -7,6 +7,7 @@ import api from '../Api/index';
 import { Card, CardText, CardBody,CardTitle} from 'reactstrap';
 import DatePicker from "react-datepicker";
 import browserHistory from '../Utils/browserHistory' 
+import "react-datepicker/dist/react-datepicker.css";
 
 class Contact extends Component {
     constructor(props){
@@ -185,7 +186,7 @@ class Contact extends Component {
                                         <h3>Address</h3>
                                         <p>Health Plus Multinational Hospital,<br/>Kennalu, Pandavapura</p>
                                         <h3>Opening Hours</h3>
-                                        <p>9:00 AM to 10:00 PM</p>
+                                        <p>Sunday : 9:00 AM to 10:00 PM<br/>Monday-Saturday : 24/6</p>
                                     </CardText>
                                 </CardBody>
                             </Card>
