@@ -107,7 +107,7 @@ class Contact extends Component {
                 <div><Navbar/></div>
                     <div className='row'>
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
-                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pagebg">
+                        <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pagebg ">
                             <div className='home_name'>CONTACT US</div>
                         </div>
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>

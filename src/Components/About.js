@@ -33,8 +33,9 @@ class About extends Component {
             console.log(this.state.users);
         });
     }
-    
+
     render() {
+        var sujatha=0,vandana=0,david=0,michel=0,sumitha=0,smrithi=0,mogambo=0,gold=0;
         return (
             <div className='about_body'>
                 <div><Logo/></div>
@@ -90,22 +91,18 @@ class About extends Component {
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                     <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
                         <div className='row'>
-                            <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3'>
+                            <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3 '>
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc1} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl' >Sujatha Datt</CardTitle>
-                                    <CardText className='designation'>
-                                        Surgen
                                         {this.state.users.map(category => {
                                             if(category.doctor==='Sujatha Datt')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
-                                            })}
-                                    </CardText>
-                                    <Button className='c_btn2'>Update</Button>
-                                    <Button className='c_btn1'>Delete</Button>
+                                                sujatha=sujatha+1;
+                                        })}
+                                        <CardTitle className='card_ttl' >Sujatha Datt<h5 className='count'>{sujatha}</h5></CardTitle>
+                                        <CardText className='designation'>Surgen</CardText>
+                                        <Button className='c_btn2'>Update</Button>
+                                        <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
                             </div>
@@ -113,17 +110,14 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc2} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>Vandana Murthy</CardTitle>
-                                    <CardText className='designation'>Surgen
-                                    {this.state.users.map(category => {
+                                        {this.state.users.map(category => {
                                             if(category.doctor==='Vandana Murthy')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
+                                                vandana=vandana+1;
                                         })}
-                                    </CardText>
-                                    <Button className='c_btn2'>Update</Button>
-                                    <Button className='c_btn1'>Delete</Button>
+                                        <CardTitle className='card_ttl'>Vandana Murthy<h5 className='count'>{vandana}</h5></CardTitle>
+                                        <CardText className='designation'>Surgen</CardText>
+                                        <Button className='c_btn2'>Update</Button>
+                                        <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
                             </div>
@@ -131,17 +125,14 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc3} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>David Carson</CardTitle>
-                                    <CardText className='designation'>Surgen
-                                    {this.state.users.map(category => {
+                                        {this.state.users.map(category => {
                                             if(category.doctor==='David Carson')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
-                                        })}
-                                    </CardText>
-                                    <Button className='c_btn2'>Update</Button>
-                                    <Button className='c_btn1'>Delete</Button>
+                                                david=david+1;
+                                        })} 
+                                        <CardTitle className='card_ttl'>David Carson<h5 className='count'>{david}</h5></CardTitle>
+                                        <CardText className='designation'>Surgen</CardText>
+                                        <Button className='c_btn2'>Update</Button>
+                                        <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
                             </div>
@@ -149,17 +140,14 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc4} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>Michel Smith</CardTitle>
-                                    <CardText className='designation'>Surgen
-                                    {this.state.users.map(category => {
+                                        {this.state.users.map(category => {
                                             if(category.doctor==='Michel Smith')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
+                                                michel=michel+1;
                                         })}
-                                    </CardText>
-                                    <Button className='c_btn2'>Update</Button>
-                                    <Button className='c_btn1'>Delete</Button>
+                                        <CardTitle className='card_ttl'>Michel Smith<h5 className='count'>{michel}</h5></CardTitle>
+                                        <CardText className='designation'>Surgen</CardText>
+                                        <Button className='c_btn2'>Update</Button>
+                                        <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
                             </div>
@@ -175,17 +163,14 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc5} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>Sumitha Singh</CardTitle>
-                                    <CardText className='designation'>Surgen
-                                    {this.state.users.map(category => {
+                                        {this.state.users.map(category => {
                                             if(category.doctor==='Sumitha Singh')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
-                                        })}
-                                    </CardText>
-                                    <Button className='c_btn2'>Update</Button>
-                                    <Button className='c_btn1'>Delete</Button>
+                                                sumitha=sumitha+1;
+                                        })}  
+                                        <CardTitle className='card_ttl'>Sumitha Singh<h5 className='count'>{sumitha}</h5></CardTitle>
+                                        <CardText className='designation'>Surgen</CardText>
+                                        <Button className='c_btn2'>Update</Button>
+                                        <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                
                             </div>
@@ -193,17 +178,14 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc6} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>Smrithi Mandanna</CardTitle>
-                                    <CardText className='designation'>Surgen
-                                    {this.state.users.map(category => {
-                                            if(category.doctor==='Smrithi Mandanna')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
+                                        {this.state.users.map(category => {
+                                            if(category.doctor==='Smrithi Mandana')
+                                                smrithi=smrithi+1;
                                         })}
-                                    </CardText>
-                                    <Button className='c_btn2'>Update</Button>
-                                    <Button className='c_btn1'>Delete</Button>
+                                        <CardTitle className='card_ttl'>Smrithi Mandanna<h5 className='count'>{smrithi}</h5></CardTitle>
+                                        <CardText className='designation'>Surgen</CardText>
+                                        <Button className='c_btn2'>Update</Button>
+                                        <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                 
                             </div>
@@ -211,17 +193,14 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc7} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>Mogambo</CardTitle>
-                                    <CardText className='designation'>Surgen
                                         {this.state.users.map(category => {
                                             if(category.doctor==='Mogambo')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
-                                        })}
-                                    </CardText>
-                                    <Button className='c_btn2'>Update</Button>
-                                    <Button className='c_btn1'>Delete</Button>
+                                                mogambo=mogambo+1;
+                                        })}     
+                                        <CardTitle className='card_ttl'>Mogambo<h5 className='count'>{mogambo}</h5></CardTitle>
+                                        <CardText className='designation'>Surgen</CardText>
+                                        <Button className='c_btn2'>Update</Button>
+                                        <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
                             </div>
@@ -229,15 +208,12 @@ class About extends Component {
                                 <Card className='img_crd'>
                                     <CardImg top width="100%" height='250px' src={doc8} alt="Card image cap" />
                                     <CardBody>
-                                    <CardTitle className='card_ttl'>Gold Smith</CardTitle>
-                                    <CardText className='designation'>Surgen
-                                    {this.state.users.map(category => {
+                                        {this.state.users.map(category => {
                                             if(category.doctor==='Gold Smith')
-                                            return (
-                                            <h3>{category.patient}</h3>  
-                                            )
+                                                gold=gold+1;
                                         })}
-                                    </CardText>
+                                    <CardTitle className='card_ttl'>Gold Smith <h5 className='count'>{gold}</h5></CardTitle>
+                                    <CardText className='designation'>Surgen </CardText>
                                     <Button className='c_btn2'>Update</Button>
                                     <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
