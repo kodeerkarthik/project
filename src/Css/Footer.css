@@ -62,12 +62,12 @@
     height: 40px;
     margin-left: 25%;
     border-radius: 20px;
-    padding-right: 10px;
+    padding-right: 1%;
     border: solid 2px rgb(235, 7, 83);
 }
 .foot_search_btn {
     color: #f80067;
-    font-size: 20px;
+    font-size: 100%;
     line-height: 20px;
 }
 .foot_p {

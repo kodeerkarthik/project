@@ -66,5 +66,8 @@
     font-weight: bold;
     -webkit-text-stroke: 1px white;
   }
-
+.row{
+  margin-right: 0;
+  margin-left: 0;
+}
 

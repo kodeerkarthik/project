@@ -15,13 +15,12 @@ class Contact extends Component {
         this.state={
             name:'',
             email:'',
-            password:'',
+            startDate: new Date(),
             message:'',
             nameError:'',
             emailError:'',
             passwordError:'',
             messageError:'',
-            startDate: new Date(),
             department:'',
             doctor:'',
             patient:'',
@@ -40,27 +39,26 @@ class Contact extends Component {
 
     handleclick = async () => {
         debugger
-        const { department,doctor,patient,startDate} = this.state;
-        const payload = {department,doctor,patient,startDate}
+        const { department,doctor,patient} = this.state;
+        const payload = {department,doctor,patient}
         console.log(payload)
         await api.selectDoctor(payload).then(res => {
             this.setState({
                 department: '',
                 doctor: '',
                 patient:'',
-                startDate:''
             })
+            browserHistory.push("/contact");
         })
     }
 
     handleSubmit = async () => {
         debugger
-        const { name,email,password,message } = this.state;
-        const payload = { name,email,password,message }
+        const { name,email,startDate,message } = this.state;
+        const payload = { name,email,startDate,message }
         
         let reg_user=/^[A-Za-z0-9]{2,10}$/;
 
-        let reg_pwd=/^[@#][A-Za-z0-9]{7,13}$/;
         let reg_email=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let t=0;
         if(!this.state.name) this.setState({nameError:'Name is required'});
@@ -75,12 +73,6 @@ class Contact extends Component {
             t++;
             this.setState({emailError:''});
         }
-        if(!this.state.password) this.setState({passwordError:'Password is required'});
-        else if(!reg_pwd.test(this.state.password)) this.setState({passwordError:'Invalid Password'});
-        else {
-            t++;
-            this.setState({passwordError:''});
-        }
         if(!this.state.message) this.setState({mobileError:'Message is required'});
         else {
             t++;
@@ -92,7 +84,7 @@ class Contact extends Component {
                 this.setState({
                     name: '',
                     email: '',
-                    password:'',
+                    startDate:'',
                     message:''
                 })
                 browserHistory.push("/contact");
@@ -120,13 +112,20 @@ class Contact extends Component {
                                 <div className='shadow'>
                                 <div className='form_box'>
                                     <h1>Apointment form</h1>
-                                    <input type='text' name='name' placeholder='Name' onChange={this.handleChange}/>
+                                    <input type='text' className='form_input' name='name' placeholder='Name' onChange={this.handleChange}/>
                                     <p className='red'>{this.state.nameError}</p>
-                                    <input type='text' name='email' placeholder='Email' onChange={this.handleChange}/>
+                                    <input type='text' className='form_input' name='email' placeholder='Email' onChange={this.handleChange}/>
                                     <p className='red'>{this.state.emailError}</p>
-                                    <input type='password' name='password' placeholder='Password' onChange={this.handleChange}/>
-                                    <p className='red'>{this.state.passwordError}</p>
-                                    <textarea  placeholder='Message' name='message' onChange={this.handleChange}></textarea>
+                                    <DatePicker className='form_input contactDoctor1' 
+                                        selected={this.state.startDate}
+                                        onChange={this.handleDate}
+                                        showTimeSelect
+                                        timeFormat="HH:mm"
+                                        timeIntervals={15}
+                                        dateFormat="MMMM d, yyyy h:mm aa"
+                                        timeCaption="time"
+                                    />
+                                    <textarea  placeholder='Message' className='form_input' name='message' onChange={this.handleChange}></textarea>
                                     <p className='red'>{this.state.messageError}</p> 
                                     <input type='submit' onClick={this.handleSubmit} value='Submit'></input>
                                 </div>
@@ -160,15 +159,7 @@ class Contact extends Component {
                                             <option>Gold Smith</option>
                                         </select>
                                         <input type='text' placeholder='Patient Name' className='contactDoctor' name='patient' onChange={this.handleChange}/>
-                                        <DatePicker className='contactDoctor'
-                                            selected={this.state.startDate}
-                                            onChange={this.handleDate}
-                                            showTimeSelect
-                                            timeFormat="HH:mm"
-                                            timeIntervals={15}
-                                            dateFormat="MMMM d, yyyy h:mm aa"
-                                            timeCaption="time"
-                                        />
+                                        
                                         <input type='button' className='contactDoctorBTN' value='SUBMIT' onClick={this.handleclick}/>
                                     </CardText>
                                     </CardBody>

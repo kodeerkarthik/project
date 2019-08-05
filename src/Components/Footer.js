@@ -25,7 +25,6 @@ class Footer extends Component {
                                 <a href='#'><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
                                 <a href='#'><i class="fa fa-snapchat-square" aria-hidden="true"></i></a>
                                 <a href='#'><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                                <a href='#'><i class="fa fa-telegram" aria-hidden="true"></i></a>    
                             </div>
                         </div>
                         <div className="col-xs-2 col-sm-2 col-md-2 col-lg-2">
