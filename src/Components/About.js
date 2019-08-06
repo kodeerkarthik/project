@@ -25,6 +25,7 @@ class About extends Component {
             count1:0,count2:0,count3:0,count4:0,count5:0,count6:0,count7:0,count8:0
         }
     }
+    
     componentDidMount(){
         axios.get('http://localhost:8000/selectdoctor')
         .then(res => {
@@ -101,7 +102,7 @@ class About extends Component {
                                         })}
                                         <CardTitle className='card_ttl' >Sujatha Datt<h5 className='count'>{sujatha}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
-                                        <Button className='c_btn2'>Update</Button>
+                                        <Button onClick={this.update} className='c_btn2'>Update</Button>
                                         <Button className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>

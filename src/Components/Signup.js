@@ -7,6 +7,7 @@ import { userSignup, userSignin} from  './user';
 import api from '../Api/index';
 import '../Css/Signup.css';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import setAuthorizationToken from '../Utils/setAuthorizationToken'
 
 class Signup extends Component {
     constructor(props){
@@ -79,7 +80,7 @@ class Signup extends Component {
                     mobile:''
                 })
                 console.log('hello')
-                browserHistory.push("/service");
+                browserHistory.push("/");
             });
                 
         }       
@@ -93,13 +94,11 @@ class Signup extends Component {
         const { email,password} = this.state;
         const payload = { email,password }
         await api.signin(payload).then(res => {
-            if(res.data==="User succesfully signIn"){
-                alert(res.data)
-                browserHistory.push("title");
-            }
-            else
-                alert(res.data);
+            const token = res.data.token;
+            localStorage.setItem('jwtToken',token);
+            setAuthorizationToken(token);
         })
+        browserHistory.push("/title");
     }
 
     toggle=()=> {
