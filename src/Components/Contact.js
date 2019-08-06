@@ -15,7 +15,7 @@ class Contact extends Component {
         this.state={
             name:'',
             email:'',
-            startDate: new Date(),
+            date: new Date(),
             message:'',
             nameError:'',
             emailError:'',
@@ -28,7 +28,7 @@ class Contact extends Component {
     }
     handleDate=(date)=> {
         this.setState({
-          startDate: date
+          date: date
         });
       }
 
@@ -54,8 +54,8 @@ class Contact extends Component {
 
     handleSubmit = async () => {
         debugger
-        const { name,email,startDate,message } = this.state;
-        const payload = { name,email,startDate,message }
+        const { name,email,date,message } = this.state;
+        const payload = { name,email,date,message }
         
         let reg_user=/^[A-Za-z0-9]{2,10}$/;
 
@@ -84,7 +84,7 @@ class Contact extends Component {
                 this.setState({
                     name: '',
                     email: '',
-                    startDate:'',
+                    date:'',
                     message:''
                 })
                 browserHistory.push("/contact");
@@ -117,7 +117,7 @@ class Contact extends Component {
                                     <input type='text' className='form_input' name='email' placeholder='Email' onChange={this.handleChange}/>
                                     <p className='red'>{this.state.emailError}</p>
                                     <DatePicker className='form_input contactDoctor1' 
-                                        selected={this.state.startDate}
+                                        selected={this.state.date}
                                         onChange={this.handleDate}
                                         showTimeSelect
                                         timeFormat="HH:mm"
