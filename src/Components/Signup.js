@@ -90,10 +90,12 @@ class Signup extends Component {
         this.setState({[e.target.name]:e.target.value});
     }
     handleSignin=async()=>{
-        
+        debugger
         const { email,password} = this.state;
         const payload = { email,password }
-        await api.signin(payload).then(res => {
+        await api.signin(payload)
+       
+        .then(res => {
             const token = res.data.token;
             localStorage.setItem('jwtToken',token);
             setAuthorizationToken(token);
