@@ -13,14 +13,13 @@ import './App.css';
 import {BrowserRouter as Router,Redirect, Route, Switch,} from 'react-router-dom';
 
 const PrivateRoute = ({ component: IncomingComponent, ...rest }) => (
-
   <Route
-    {...rest}
-    render={props => (  
-      (localStorage.getItem('token')) ? (<IncomingComponent {...props} />) : (
-        <Redirect to={{pathname: '/', state: { from: props.location }, }}/>)
-    )}
-  />
+  {...rest}
+  render={props => (  
+    (sessionStorage.getItem('authentication')) ? (<IncomingComponent {...props} />) : (
+      <Redirect to={{pathname: '/', state: { from: props.location }, }}/>)
+  )}
+/>
 );
 
 

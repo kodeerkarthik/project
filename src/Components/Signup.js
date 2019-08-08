@@ -27,7 +27,6 @@ class Signup extends Component {
         }
     }
     handleSubmit = async () => {
-     debugger;
         const { firstname,lastname,email,password,mobile } = this.state
         const payload = { firstname,lastname,email,password,mobile }
         
@@ -90,21 +89,20 @@ class Signup extends Component {
         this.setState({[e.target.name]:e.target.value});
     }
     handleSignin=async()=>{
-        debugger
         const { email,password} = this.state;
         const payload = { email,password }
-        await api.signin(payload)
-       
-        .then(res => {
-            const token = res.data.token;
-            localStorage.setItem('jwtToken',token);
-            setAuthorizationToken(token);
-        })
+        const signinRes = await api.signin(payload)
+        sessionStorage.setItem('authentication', signinRes.data.token)
+        sessionStorage.setItem('userEmail', signinRes.data.email)
+        // .then(res => {
+        //     const token = res.data.token;
+        //     localStorage.setItem('jwtToken',token);
+        //     setAuthorizationToken(token);
+        // })
         browserHistory.push("/title");
     }
 
     toggle=()=> {
-        debugger;
         this.setState({
           modal: !this.state.modal
         });

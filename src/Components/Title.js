@@ -4,7 +4,9 @@ import smoke from '../Images/smoke.mp4'
 import browserHistory from '../Utils/browserHistory' 
 import Home from '../Components/Home'
 class Title extends Component {
+
     componentDidMount() {
+        debugger
         setTimeout(() => {
             browserHistory.push('/home')
         }, 8000)
