@@ -5,10 +5,16 @@ import React, { Component } from 'react';
 // import Service from './Service'
 // import Contact from './Contact'
 import '../Css/Navbar.css';
+import browserHistory from '../Utils/browserHistory';
 // import logo1 from '../Images/logo1.png'
 class Navbar extends Component { 
-    render() {
 
+    logout=()=> {
+        browserHistory.push('/');
+        sessionStorage.setItem("authentication", "");
+        sessionStorage.setItem("userEmail", "");
+    }
+    render() {
         return (
             <div className='nav_body'>
                 <nav className='navnar'>
@@ -33,7 +39,7 @@ class Navbar extends Component {
                             <a className="search_btn" href="#"><i className="fa fa-search"></i></a>
                             </div>
                         </span>
-                        <li className="col-xs-1 col-sm-1 col-md-1 col-lg-1 "><a href="/"><button className="logout">Logout</button></a></li>
+                        <li className="col-xs-1 col-sm-1 col-md-1 col-lg-1 "><button onClick={this.logout} className="logout">Logout</button></li>
                     </ul>
                 </nav>
                 {/* <script src='https://code.jquery.com/jquery-3.2.1.js'></script>
