@@ -9,6 +9,12 @@ import browserHistory from '../Utils/browserHistory';
 // import logo1 from '../Images/logo1.png'
 class Navbar extends Component { 
 
+componentDidMount(){
+    
+}
+                    
+                    
+          
     logout=()=> {
         browserHistory.push('/');
         sessionStorage.setItem("authentication", "");
@@ -42,13 +48,7 @@ class Navbar extends Component {
                         <li className="col-xs-1 col-sm-1 col-md-1 col-lg-1 "><button onClick={this.logout} className="logout">Logout</button></li>
                     </ul>
                 </nav>
-                {/* <script src='https://code.jquery.com/jquery-3.2.1.js'></script>
-                <script type="text/javascript">
-                    $(document).ready(function(){
-                        $('.unlist').toggleClass('active')
-                    }) 
-                    
-                </script> */}
+                
             </div>
         );
     }

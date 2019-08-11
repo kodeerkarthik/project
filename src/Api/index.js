@@ -11,12 +11,15 @@ export const appoint = payload => api.post('/appointment',payload)
 
 export const selectDoctor = payload => api.post('/selectDoctor',payload)
 
+export const RemoveById = id =>api.delete(`/selectdoctor/${id}`)
+
 
 const apis = {
 signup,
 signin,
 appoint,
-selectDoctor
+selectDoctor,
+RemoveById
 }
 
 export default apis

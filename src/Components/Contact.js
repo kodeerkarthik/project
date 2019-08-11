@@ -59,7 +59,7 @@ class Contact extends Component {
         
         let reg_user=/^[A-Za-z0-9]{2,10}$/;
 
-        let reg_email=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let reg_email=/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let t=0;
         if(!this.state.name) this.setState({nameError:'Name is required'});
         else if(!reg_user.test(this.state.name)) this.setState({nameError:'Invalid Name'});

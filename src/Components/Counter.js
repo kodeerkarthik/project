@@ -19,7 +19,7 @@ class Counter extends Component {
     }
     componentDidMount(){
         debugger
-        const axio = setAuthorizationToken();
+        const axios = setAuthorizationToken();
         axios.get('http://localhost:8000/count')
         .then(res => {
             this.setState({count: res.data});

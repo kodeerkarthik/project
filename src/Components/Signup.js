@@ -89,6 +89,7 @@ class Signup extends Component {
         this.setState({[e.target.name]:e.target.value});
     }
     handleSignin=async()=>{
+        debugger;
         const { email,password} = this.state;
         const payload = { email,password }
         const signinRes = await api.signin(payload)
