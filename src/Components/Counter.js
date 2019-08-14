@@ -42,11 +42,7 @@ class Counter extends Component {
                 <div className='row counter'>
                     <div className='col-xs-2 col-sm-2 col-md-2 col-lg-2 eachcounter'>
                         <img src={day} alt={"day"}></img><p>Days a year</p>
-<<<<<<< HEAD
                         <h2 className='countnum'>{this.state.count.map(cont => <CountUp  end={cont.days} delay={1} //suffix=' Days'
-=======
-                         <h2 className='countnum'>{this.state.count.map(cont => <CountUp  end={cont.days} delay={1} //suffix=' Days'
->>>>>>> abed8587a33dfd9bbd576a03578c5e8ca48af756
                         />)}</h2>
                     </div>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
