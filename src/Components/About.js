@@ -26,14 +26,15 @@ class About extends Component {
     constructor( props ){
         super( props )
         this.state = { 
-            name:'',
-            email:'',
-            message:"",
+            department:'',
+            doctor:'',
+            patient:"",
             users:[],
             date:'',
             updt:[],
             id:'',
-            modal:false,modal1:false,modal2:false,modal3:false,modal4:false,modal5:false,modal6:false,modal7:false,modal8:false,
+            umodal1:false,umodal2:false,umodal3:false,umodal4:false,umodal5:false,umodal6:false,umodal7:false,umodal8:false,
+            modal1:false,modal2:false,modal3:false,modal4:false,modal5:false,modal6:false,modal7:false,modal8:false,
             count1:0,count2:0,count3:0,count4:0,count5:0,count6:0,count7:0,count8:0
         }
     }
@@ -47,7 +48,14 @@ class About extends Component {
           date: date
         });
       }
-    toggle=()=>{this.setState({modal:!this.state.modal});}
+      utoggle1=()=>{this.setState({umodal1: !this.state.umodal1});}
+      utoggle2=()=>{this.setState({umodal2: !this.state.umodal2});}
+      utoggle3=()=>{this.setState({umodal3: !this.state.umodal3});}
+      utoggle4=()=>{this.setState({umodal4: !this.state.umodal4});}
+      utoggle5=()=>{this.setState({umodal5: !this.state.umodal5});}
+      utoggle6=()=>{this.setState({umodal6: !this.state.umodal6});}
+      utoggle7=()=>{this.setState({umodal7: !this.state.umodal7});}
+      utoggle8=()=>{this.setState({umodal8: !this.state.umodal8});}
 
     toggle1=()=>{this.setState({modal1: !this.state.modal1});}
     toggle2=()=>{this.setState({modal2: !this.state.modal2});}
@@ -64,7 +72,7 @@ class About extends Component {
             console.log(res)
             this.setState({users: res.data});
         });
-        axios.get('http://localhost:8000/appointment')
+        axios.get('http://localhost:8000/selectdoctor')
         .then(res => {
             console.log(res)
             this.setState({updt: res.data});
@@ -79,8 +87,8 @@ class About extends Component {
     update = (id) => {
         debugger
         console.log("hii")
-        const  {name,email,date,message}=this.state; 
-        const payload={name,email,date,message,id}
+        const  {department,doctor,date,patient}=this.state; 
+        const payload={department,doctor,date,patient,id}
         api.UpdateById(id,payload).then(res=>{
             window.location.reload()
         })  
@@ -142,29 +150,12 @@ class About extends Component {
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                 </div> 
 
-                <Modal isOpen={this.state.modal}>
-                    <ModalBody>
-                        <input type='text'  name='name' placeholder='Name' onChange={this.handleChange}/>
-                        <input type='text'  name='email' placeholder='Email' onChange={this.handleChange}/>
-                        <input type='text' name='message' placeholder='message' onChange={this.handleChange}/>
-                        <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
-                        showTimeSelect
-                        timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
-                        {this.state.updt.map(update => {return <tr>
-                        <td>{update.name}</td>
-                        <td>{update.date}</td>
-                        <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
-                        </tr>})}
-                    </ModalBody>
-                    <ModalFooter>
-                        <Button color="danger" onClick={this.toggle}>Cancel</Button>
-                    </ModalFooter>
-                </Modal>
+                
 
   {/*-----------------------------------------Doctors-----------------------------------------------------------------               */}
                 <div className='row margintop'>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
-                    <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
+                    <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'> 
                         <div className='row'>
                             <div className='col-xs-3 col-sm-3 col-md-3 col-lg-3 '>
                                 <Card className='img_crd'>
@@ -176,19 +167,54 @@ class About extends Component {
                                         })}
                                         <CardTitle className='card_ttl' >Sujatha Datt<h5 className='count'>{sujatha}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
+                                        <Modal isOpen={this.state.umodal1}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                 
+                                                <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='Sujatha Datt') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle1}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                         <Modal isOpen={this.state.modal1}>
                                             <ModalBody>
                                             {sujatha>0?<p></p>:<p>No Appointment are there</p>}
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Sujatha Datt')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle1}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle1} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle1} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
@@ -204,19 +230,54 @@ class About extends Component {
                                         })}
                                         <CardTitle className='card_ttl'>Vandana Murthy<h5 className='count'>{vandana}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
+                                        <Modal isOpen={this.state.umodal2}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>                                                
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                 
+                                                <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='Vandana Murthy') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle2}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                         <Modal isOpen={this.state.modal2}>
                                             {vandana>0?<p></p>:<p>No Appointment are there</p>}
                                             <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Vandana Murthy')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             </ModalBody> 
                                             <ModalFooter><Button color="danger" onClick={this.toggle2}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle2} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle2} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
@@ -232,19 +293,54 @@ class About extends Component {
                                         })} 
                                         <CardTitle className='card_ttl'>David Carson<h5 className='count'>{david}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
+                                        <Modal isOpen={this.state.umodal3}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>                                                
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                 
+                                                <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='David Carson') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle3}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                         <Modal isOpen={this.state.modal3}>
                                             {david>0?<p></p>:<p>No Appointment are there</p>} 
                                             <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='David Carson')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             <ModalFooter><Button color="danger" onClick={this.toggle3}>Cancel</Button></ModalFooter>
                                             </ModalBody>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle3} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle3} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
@@ -260,19 +356,54 @@ class About extends Component {
                                         })}
                                         <CardTitle className='card_ttl'>Michel Smith<h5 className='count'>{michel}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
+                                        <Modal isOpen={this.state.umodal4}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>                                                
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                 
+                                                <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='Michel Smith') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle4}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                         <Modal isOpen={this.state.modal4}>
                                             {michel>0?<p></p>:<p>No Appointment are there</p>} 
                                             <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Michel Smith')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle4}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle4} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle4} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
@@ -281,6 +412,7 @@ class About extends Component {
                     </div>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                 </div>
+{/* --------------------------------------------------------------------------------------------------------- */}
                 <div className='row margintop'>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                     <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
@@ -295,19 +427,54 @@ class About extends Component {
                                         })}  
                                         <CardTitle className='card_ttl'>Sumitha Singh<h5 className='count'>{sumitha}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
+                                        <Modal isOpen={this.state.umodal5}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>                                                    
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                 
+                                                <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='Sumitha Singh') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle5}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                         <Modal isOpen={this.state.modal5}>
                                             {sumitha>0?<p></p>:<p>No Appointment are there</p>} 
                                             <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Sumitha Singh')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle5}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle5} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle5} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                
@@ -322,19 +489,54 @@ class About extends Component {
                                         })}
                                         <CardTitle className='card_ttl'>Smrithi Mandanna<h5 className='count'>{smrithi}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
+                                        <Modal isOpen={this.state.umodal6}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>                                                    
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                 
+                                                <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='Smrithi Mandana') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle6}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                         <Modal isOpen={this.state.modal6}>
                                             {smrithi>0?<p></p>:<p>No Appointment are there</p>} 
                                             <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Smrithi Mandana')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle6}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle6} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle6} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                 
@@ -349,19 +551,54 @@ class About extends Component {
                                         })}     
                                         <CardTitle className='card_ttl'>Mogambo<h5 className='count'>{mogambo}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
+                                        <Modal isOpen={this.state.umodal7}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>                                                    
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                
+                                            <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='Mogambo') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle7}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                         <Modal isOpen={this.state.modal7}>
                                             {mogambo>0?<p></p>:<p>No Appointment are there</p>} 
                                             <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Mogambo')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle7}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle7} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle7} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
@@ -376,19 +613,54 @@ class About extends Component {
                                         })}
                                     <CardTitle className='card_ttl'>Gold Smith <h5 className='count'>{gold}</h5></CardTitle>
                                     <CardText className='designation'>Surgen </CardText>
+                                    <Modal isOpen={this.state.umodal8}>
+                                            <ModalBody>
+                                                <select className='contactDoctor' name='department' onChange={this.handleChange}>
+                                                    <option>Department</option>
+                                                    <option>Cardiology</option>
+                                                    <option>Dermatology</option>
+                                                    <option>Immunology</option>
+                                                    <option>Hepatology</option>
+                                                    <option>Psychiatry</option>
+                                                    <option>Endocrinology</option>
+                                                </select>                                                    
+                                                <input type='text'  name='patient' placeholder='patient' onChange={this.handleChange}/>
+                                                <select className='contactDoctor' name='doctor' onChange={this.handleChange}>
+                                                    <option>Doctor Name</option>
+                                                    <option>Sujatha Datt</option>
+                                                    <option>Vandana Murthy</option>
+                                                    <option>David Carson</option>
+                                                    <option>Michel Smith</option>
+                                                    <option>Sumitha Singh</option>
+                                                    <option>Smrithi Mandana</option>
+                                                    <option>Mogambo</option>
+                                                    <option>Gold Smith</option>
+                                                </select>                                                
+                                                <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                                                showTimeSelect
+                                                timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                                                {this.state.updt.map(update => {if(update.doctor==='Gold Smith') return <tr>
+                                                <td>{update.patient}</td><td>{update.doctor}</td><td>{update.date}</td>
+                                                <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                                                </tr>})}
+                                            </ModalBody>
+                                            <ModalFooter>
+                                                <Button color="danger" onClick={this.utoggle8}>Cancel</Button>
+                                            </ModalFooter>
+                                        </Modal>
                                     <Modal isOpen={this.state.modal8}>
                                         {gold>0?<p></p>:<p>No Appointment are there</p>} 
                                             <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Gold Smith')return(
                                                 <tr>
-                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <td>{category.patient}</td><td>{category.department}</td><td>{category.date}</td>
                                                     <button  onClick={(e)=> this.delete(category._id)}>delete</button>
                                                 </tr>)})}
                                             </ModalBody>
                                                 <ModalFooter><Button color="danger" onClick={this.toggle8}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
+                                        <Button onClick={this.utoggle8} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle8} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                

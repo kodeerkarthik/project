@@ -12,7 +12,7 @@ export const appoint = payload => api.post('/appointment',payload)
 export const selectDoctor = payload => api.post('/selectDoctor',payload)
 
 export const RemoveById = id =>api.delete(`/selectdoctor/${id}`)
-export const UpdateById =(id,payload) =>api.put(`/appointment/${id}`,payload)
+export const UpdateById =(id,payload) =>api.put(`/selectdoctor/${id}`,payload)
 
 
 const apis = {

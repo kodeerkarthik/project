@@ -39,8 +39,8 @@ class Contact extends Component {
 
     handleclick = async () => {
         debugger
-        const { department,doctor,patient} = this.state;
-        const payload = {department,doctor,patient}
+        const { department,doctor,date,patient} = this.state;
+        const payload = {department,doctor,date,patient}
         console.log(payload)
         await api.selectDoctor(payload).then(res => {
             this.setState({
@@ -158,6 +158,15 @@ class Contact extends Component {
                                             <option>Mogambo</option>
                                             <option>Gold Smith</option>
                                         </select>
+                                        <DatePicker className='contactDoctor' 
+                                        selected={this.state.date}
+                                        onChange={this.handleDate}
+                                        showTimeSelect
+                                        timeFormat="HH:mm"
+                                        timeIntervals={15}
+                                        dateFormat="MMMM d, yyyy h:mm aa"
+                                        timeCaption="time"
+                                    />
                                         <input type='text' placeholder='Patient Name' className='contactDoctor' name='patient' onChange={this.handleChange}/>    
                                         <input type='button' className='contactDoctorBTN' value='SUBMIT' onClick={this.handleclick}/>
                                     </CardText>
