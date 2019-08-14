@@ -44,7 +44,6 @@ function App() {
           <PrivateRoute exact path='/news' component={News}></PrivateRoute> 
           <PrivateRoute exact path='/title' component={Title}></PrivateRoute>
           <PrivateRoute exact path='/contact' component={Contact}></PrivateRoute>
-
         </Switch>
       </Router>    
     </div>

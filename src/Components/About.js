@@ -16,7 +16,9 @@ import doc6 from '../Images/doc6.jpg';
 import doc7 from '../Images/doc7.jpg';
 import doc8 from '../Images/doc8.jpeg';
 import axios from 'axios';
-import {  Modal,ModalFooter } from 'reactstrap';
+import {  Modal,ModalBody,ModalFooter } from 'reactstrap';
+import DatePicker from "react-datepicker"; 
+import "react-datepicker/dist/react-datepicker.css";
 
 
 import { Card, CardImg, CardText, CardBody,CardTitle,Button } from 'reactstrap';
@@ -24,12 +26,29 @@ class About extends Component {
     constructor( props ){
         super( props )
         this.state = { 
+            name:'',
+            email:'',
+            message:"",
             users:[],
+            date:'',
+            updt:[],
             id:'',
-            modal1:false,modal2:false,modal3:false,modal4:false,modal5:false,modal6:false,modal7:false,modal8:false,
+            modal:false,modal1:false,modal2:false,modal3:false,modal4:false,modal5:false,modal6:false,modal7:false,modal8:false,
             count1:0,count2:0,count3:0,count4:0,count5:0,count6:0,count7:0,count8:0
         }
     }
+
+    handleChange=(e)=>{
+        this.setState({[e.target.name]:e.target.value});
+    }
+
+    handleDate=(date)=> {
+        this.setState({
+          date: date
+        });
+      }
+    toggle=()=>{this.setState({modal:!this.state.modal});}
+
     toggle1=()=>{this.setState({modal1: !this.state.modal1});}
     toggle2=()=>{this.setState({modal2: !this.state.modal2});}
     toggle3=()=>{this.setState({modal3: !this.state.modal3});}
@@ -45,11 +64,26 @@ class About extends Component {
             console.log(res)
             this.setState({users: res.data});
         });
+        axios.get('http://localhost:8000/appointment')
+        .then(res => {
+            console.log(res)
+            this.setState({updt: res.data});
+        });
     }
 
     delete = (id) => {
         api.RemoveById(id)
         window.location.reload()
+    }
+    
+    update = (id) => {
+        debugger
+        console.log("hii")
+        const  {name,email,date,message}=this.state; 
+        const payload={name,email,date,message,id}
+        api.UpdateById(id,payload).then(res=>{
+            window.location.reload()
+        })  
     }
     
 
@@ -59,6 +93,7 @@ class About extends Component {
             <div className='about_body'>
                 <div><Logo/></div>
                 <div><Navbar/></div>
+                <div></div>
                 <div className='row'>
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
                     <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4 pagebg">
@@ -107,7 +142,26 @@ class About extends Component {
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                 </div> 
 
-  {/* -----------------------------------------Doctors-----------------------------------------------------------------               */}
+                <Modal isOpen={this.state.modal}>
+                    <ModalBody>
+                        <input type='text'  name='name' placeholder='Name' onChange={this.handleChange}/>
+                        <input type='text'  name='email' placeholder='Email' onChange={this.handleChange}/>
+                        <input type='text' name='message' placeholder='message' onChange={this.handleChange}/>
+                        <DatePicker className='updtTime' selected={this.state.date} onChange={this.handleDate}
+                        showTimeSelect
+                        timeFormat="HH:mm" timeIntervals={15} dateFormat="MMMM d, yyyy h:mm aa" timeCaption="time"/>
+                        {this.state.updt.map(update => {return <tr>
+                        <td>{update.name}</td>
+                        <td>{update.date}</td>
+                        <td><button className='updateBtn' onClick={(e)=> this.update(update._id)}>Update</button></td>
+                        </tr>})}
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="danger" onClick={this.toggle}>Cancel</Button>
+                    </ModalFooter>
+                </Modal>
+
+  {/*-----------------------------------------Doctors-----------------------------------------------------------------               */}
                 <div className='row margintop'>
                     <div className='col-xs-1 col-sm-1 col-md-1 col-lg-1'></div>
                     <div className='col-xs-10 col-sm-10 col-md-10 col-lg-10'>
@@ -123,14 +177,18 @@ class About extends Component {
                                         <CardTitle className='card_ttl' >Sujatha Datt<h5 className='count'>{sujatha}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
                                         <Modal isOpen={this.state.modal1}>
+                                            <ModalBody>
                                             {sujatha>0?<p></p>:<p>No Appointment are there</p>}
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Sujatha Datt')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
+                                            </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle1}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle1} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle1} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
@@ -147,14 +205,18 @@ class About extends Component {
                                         <CardTitle className='card_ttl'>Vandana Murthy<h5 className='count'>{vandana}</h5></CardTitle>
                                         <CardText className='designation'>Surgen</CardText>
                                         <Modal isOpen={this.state.modal2}>
-                                            {vandana>0?<p></p>:<p>No Appointment are there</p>} 
+                                            {vandana>0?<p></p>:<p>No Appointment are there</p>}
+                                            <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Vandana Murthy')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
+                                            </ModalBody> 
                                             <ModalFooter><Button color="danger" onClick={this.toggle2}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle2} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle2} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>
@@ -172,13 +234,17 @@ class About extends Component {
                                         <CardText className='designation'>Surgen</CardText>
                                         <Modal isOpen={this.state.modal3}>
                                             {david>0?<p></p>:<p>No Appointment are there</p>} 
+                                            <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='David Carson')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
                                             <ModalFooter><Button color="danger" onClick={this.toggle3}>Cancel</Button></ModalFooter>
+                                            </ModalBody>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle3} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle3} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
@@ -196,13 +262,17 @@ class About extends Component {
                                         <CardText className='designation'>Surgen</CardText>
                                         <Modal isOpen={this.state.modal4}>
                                             {michel>0?<p></p>:<p>No Appointment are there</p>} 
+                                            <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Michel Smith')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
+                                            </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle4}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle4} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle4} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
@@ -227,13 +297,17 @@ class About extends Component {
                                         <CardText className='designation'>Surgen</CardText>
                                         <Modal isOpen={this.state.modal5}>
                                             {sumitha>0?<p></p>:<p>No Appointment are there</p>} 
+                                            <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Sumitha Singh')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
+                                            </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle5}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle5} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle5} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                
@@ -250,13 +324,17 @@ class About extends Component {
                                         <CardText className='designation'>Surgen</CardText>
                                         <Modal isOpen={this.state.modal6}>
                                             {smrithi>0?<p></p>:<p>No Appointment are there</p>} 
+                                            <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Smrithi Mandana')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
+                                            </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle6}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle6} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle6} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                 
@@ -273,13 +351,17 @@ class About extends Component {
                                         <CardText className='designation'>Surgen</CardText>
                                         <Modal isOpen={this.state.modal7}>
                                             {mogambo>0?<p></p>:<p>No Appointment are there</p>} 
+                                            <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Mogambo')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
+                                            </ModalBody>
                                             <ModalFooter><Button color="danger" onClick={this.toggle7}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle7} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle7} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                            
@@ -296,13 +378,17 @@ class About extends Component {
                                     <CardText className='designation'>Surgen </CardText>
                                     <Modal isOpen={this.state.modal8}>
                                         {gold>0?<p></p>:<p>No Appointment are there</p>} 
+                                            <ModalBody>
                                             {this.state.users.map(category => {
                                                 if(category.doctor==='Gold Smith')return(
-                                                <tr onClick={(e)=> this.delete(category._id)}>
-                                                <td>{category.patient}</td><td>{category.department}</td></tr>)})}
+                                                <tr>
+                                                    <td>{category.patient}</td><td>{category.department}</td>
+                                                    <button  onClick={(e)=> this.delete(category._id)}>delete</button>
+                                                </tr>)})}
+                                            </ModalBody>
                                                 <ModalFooter><Button color="danger" onClick={this.toggle8}>Cancel</Button></ModalFooter>
                                         </Modal>
-                                        {/* <Button onClick={this.toggle8} className='c_btn2'>Update</Button> */}
+                                        <Button onClick={this.toggle} className='c_btn2'>Update</Button>
                                         <Button onClick={this.toggle8} className='c_btn1'>Delete</Button>
                                     </CardBody>
                                 </Card>                                

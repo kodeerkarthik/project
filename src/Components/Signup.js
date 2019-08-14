@@ -115,7 +115,6 @@ class Signup extends Component {
     }
 
     render() {
-        
         return ( 
             <div className="body">
                 <Logo/>

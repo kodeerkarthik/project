@@ -5,8 +5,8 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import api from '../Api/index';
 import { Card, CardText, CardBody,CardTitle} from 'reactstrap';
-import DatePicker from "react-datepicker";
-import browserHistory from '../Utils/browserHistory' 
+import browserHistory from '../Utils/browserHistory'
+import DatePicker from "react-datepicker"; 
 import "react-datepicker/dist/react-datepicker.css";
 
 class Contact extends Component {
@@ -64,8 +64,8 @@ class Contact extends Component {
         if(!this.state.name) this.setState({nameError:'Name is required'});
         else if(!reg_user.test(this.state.name)) this.setState({nameError:'Invalid Name'});
         else{
-             t++;
-             this.setState({nameError:''});
+            t++;
+            this.setState({nameError:''});
         }
         if(!this.state.email) this.setState({emailError:'Email is required'});
         else if(!reg_email.test(this.state.email)) this.setState({emailError:'Invalid Email'}); 
@@ -158,8 +158,7 @@ class Contact extends Component {
                                             <option>Mogambo</option>
                                             <option>Gold Smith</option>
                                         </select>
-                                        <input type='text' placeholder='Patient Name' className='contactDoctor' name='patient' onChange={this.handleChange}/>
-                                        
+                                        <input type='text' placeholder='Patient Name' className='contactDoctor' name='patient' onChange={this.handleChange}/>    
                                         <input type='button' className='contactDoctorBTN' value='SUBMIT' onClick={this.handleclick}/>
                                     </CardText>
                                     </CardBody>
@@ -173,7 +172,7 @@ class Contact extends Component {
                         <div className="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                             <Card className='card black'>
                                 <CardBody className='c_body'>
-                                <CardText className='c_txt'>
+                                    <CardText className='c_txt'>
                                         <h3>Address</h3>
                                         <p>Health Plus Multinational Hospital,<br/>Kennalu, Pandavapura</p>
                                         <h3>Opening Hours</h3>
